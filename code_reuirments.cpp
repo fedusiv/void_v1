@@ -1,4 +1,10 @@
 
+/*
+	Please dont be greedy for comments.
+	If you can leave comments, leave it
+ */
+
+
 // Class Name's always with Uppercase
 class Example
 {
