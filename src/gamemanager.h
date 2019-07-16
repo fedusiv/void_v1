@@ -9,7 +9,7 @@ public:
     GameManager();
 
 private:
-    GameGui gui_;
+    GameGui _gui;
 };
 
 #endif // GAMEMANAGER_H

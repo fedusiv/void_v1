@@ -10,7 +10,7 @@ public:
     void run();
 
 private:
-    QQmlApplicationEngine engine_;
+    QQmlApplicationEngine _engine;
 };
 
 #endif //GAMEGUI_H

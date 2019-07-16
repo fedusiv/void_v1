@@ -2,17 +2,17 @@
 
 #include <QQmlContext>
 
-//register obj under qmlName for using it from qml
+/* @desc: register obj under qmlName for using it from qml */
 void GameGui::registerObject(QObject *obj, const QString& qmlName)
 {
     if(obj)
     {
-        engine_.rootContext()->setContextProperty(qmlName, obj);
+        _engine.rootContext()->setContextProperty(qmlName, obj);
     }
 }
 
-//starting qml engine
+/* @desc: starting qml engine */
 void GameGui::run()
 {
-    engine_.load("qrc:/main.qml");
+    _engine.load("qrc:/main.qml");
 }

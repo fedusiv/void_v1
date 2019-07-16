@@ -5,5 +5,5 @@ GameManager::GameManager()
     //...
     //other initializing
 
-    gui_.run();
+    _gui.run();
 }
