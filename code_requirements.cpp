@@ -42,6 +42,10 @@ class Example
 		return argument1 + argumetn2;
 	}
 
+	public slots:
+		// each slot have to started with word "on"
+		void onExampleSlot();
+
 	private:
 		// local variables at Class
 		int _Example;
