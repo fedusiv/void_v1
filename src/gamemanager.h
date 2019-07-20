@@ -2,6 +2,7 @@
 #define GAMEMANAGER_H
 
 #include <gui/gamegui.h>
+#include "player/player.h"
 
 class GameManager
 {
@@ -10,6 +11,7 @@ public:
 
 private:
     GameGui _gui;
+    PLayer _Player;
 };
 
 #endif // GAMEMANAGER_H
