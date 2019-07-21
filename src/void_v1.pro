@@ -16,7 +16,9 @@ SOURCES += \
         gamemanager.cpp \
         gui/gamegui.cpp \
         main.cpp \
-        skills/skill.cpp
+        skills/skill.cpp \
+        skills/skilllist.cpp \
+        skills/skillsqueue.cpp
 
 RESOURCES += qml/qml.qrc
 
@@ -35,4 +37,7 @@ HEADERS += \
     gamemanager.h \
     gui/gamegui.h \
     skills/skill.h \
+    skills/skill_class_types.h \
+    skills/skilllist.h \
+    skills/skillsqueue.h \
     skills/skillvalues.h

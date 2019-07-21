@@ -3,13 +3,14 @@
 // TODO : add memory aligment to all struct with bit sets
 #include <QString>
 #include "skillvalues.h"
+#include "skill_class_types.h"
 
 // Common types of Skill
 typedef enum SkillType
 {
     Attack,                 // Change Attack parameters
-    Take,                   // Some changes in processing damage
-    Stats                   // All other
+    Defence,                   // Some changes in processing damage
+    Common                   // All other
 }SkillType;
 
 // Information About Skill target
@@ -22,8 +23,8 @@ typedef enum SkillTarget
 // stores information about Skill Type. And Type inside Class
 typedef struct SkillAttributeType
 {
-    uint8_t SkillType:4;
-    uint8_t ClassType:4;
+    uint8_t SkillType:3;
+    uint8_t ClassType:5;
 
 }SkillAttributeType;
 
@@ -38,6 +39,7 @@ typedef struct  SkillDurationInformation
 
 /*
  * struct, which stores data of skill. More convient for Skill constructor
+ * struct for dataBase
  */
 typedef struct  SkillAttribute
 {
@@ -57,7 +59,8 @@ class Skill
 
 public:
     Skill(SkillAttribute attribute);
-
+    // method for Change Damage
+    // method for Change Defence
 
 private:
     QString _Name;
@@ -66,6 +69,7 @@ private:
     SkillTarget _Target;
     SkillType _SkillType;
     SkillValues * _SkillValues;
+    SkillClassTypes _ClassType;
     bool _Active;
 
 };
