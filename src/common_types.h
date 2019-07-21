@@ -49,9 +49,9 @@ typedef struct PlayerWeaponDamage
 }PlayerWeaponDamage;
 
 /*
- * List of All Race in the game
+ * List of All Classes in the game
  */
-typedef enum RaceList
+typedef enum ClassList
 {
     Assassin,
     Rogue,
@@ -59,6 +59,6 @@ typedef enum RaceList
     Warrior,
     Knight,
     RaceCount
-}RaceList;
+}ClassList;
 
 #endif // COMMON_TYPES_H

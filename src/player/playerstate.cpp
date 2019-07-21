@@ -41,3 +41,18 @@ void PlayerState::setHealthMax(float health)
 {
     _HealthMax = health;
 }
+
+/*
+ * @desc : change one of the Armor parameters
+ * @param: damage Type
+ * @param : new value of Armor
+ */
+void PlayerState::changeArmor(DamageTypes damageType, float value)
+{
+    _Armor[damageType] = value;
+}
+
+void PlayerState::changeLearParameter(ClassList playerClass, int value)
+{
+    _LearState.insert(playerClass,value);
+}

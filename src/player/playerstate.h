@@ -2,6 +2,7 @@
 #define PLAYERSTATE_H
 
 #include <QVector>
+#include <QMap>
 #include "common_types.h"
 
 /*
@@ -17,19 +18,35 @@ private:
     float _InventoryWeight; // Maximum carrying power of Player
     int _Level;             // Current level of PLayer
     int _Step;              // Current Step
-    QVector<int> _Armor;    // Armor parameters of Player
+    QVector<float> _Armor;    // Armor parameters of Player
     PlayerWeaponDamage _PlayerWeaponDamage;
-    QVector<int> RaseSets;  //set of Race's which Player stores
+    QMap<ClassList,int> _LearState;  //set of Classes's which Player stores
 
     // methods part
     void firstInitilize();
 
 public:
-    PlayerState();
-    void setHealth(float health);
-    void setHealthMax(float health);
-    float getHealth() { return _Health;}
-    float getHealthMax() {return _HealthMax;}
+    PlayerState();                              // constructor
+
+    void setHealth(float health);               // setter of Health
+    void setHealthMax(float health);            // setter of Health Max
+    float getHealth() { return _Health;}        // get Health
+    float getHealthMax() {return _HealthMax;}   // get max Health
+
+    void  setInventoryWeight(float weight){_InventoryWeight = weight;}
+    float getInventoryWeight(){return _InventoryWeight;}
+
+    void setLevel(int level){_Level = level;}
+    int  getLevel(){return _Level;}
+
+    void setStep(int step){_Step = step;}
+    int  getStep(){return _Step;}
+
+    void changeArmor(DamageTypes damageType, float value);
+    QVector<float> getArmor(){return _Armor;}           // return Armor parameter
+
+    void changeLearParameter(ClassList playerClass, int value);   // change one parametr of Lear state
+    QMap<ClassList, int> getLearState() { return _LearState;}// return Lear State of Player
 
 };
 
