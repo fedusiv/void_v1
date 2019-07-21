@@ -18,6 +18,10 @@ SOURCES += \
         main.cpp \
         player/player.cpp \
         player/playerstate.cpp
+        skills/skill.cpp \
+        skills/skilllist.cpp \
+        skills/skillsqueue.cpp
+
 
 RESOURCES += qml/qml.qrc
 
@@ -38,3 +42,9 @@ HEADERS += \
     gui/gamegui.h \
     player/player.h \
     player/playerstate.h
+    skills/skill.h \
+    skills/skill_class_types.h \
+    skills/skilllist.h \
+    skills/skillsqueue.h \
+    skills/skillvalues.h
+
