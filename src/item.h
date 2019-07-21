@@ -1,6 +1,11 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-class Cloth{};
+
+class Item
+{
+public:
+    Item();
+};
 
 #endif // ITEM_H

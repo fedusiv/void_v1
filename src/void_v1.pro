@@ -15,8 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         gamemanager.cpp \
         gui/gamegui.cpp \
-        main.cpp \
-    item.cpp
+        items/item.cpp \
+        main.cpp
 
 RESOURCES += qml/qml.qrc
 
@@ -34,4 +34,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     gamemanager.h \
     gui/gamegui.h \
-    item.h
+    items/item.h \
+    return_codes.h

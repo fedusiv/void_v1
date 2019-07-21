@@ -1,5 +1,6 @@
 #include "item.h"
 
-int main(){
+Item::Item()
+{
 
 }
