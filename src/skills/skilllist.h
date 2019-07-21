@@ -1,7 +1,7 @@
 #ifndef SKILLLIST_H
 #define SKILLLIST_H
 
-#include <QVector>
+#include <QList>
 #include "skill.h"
 
 /*
@@ -10,11 +10,11 @@
 class SkillList
 {
 private:
-    QVector<Skill> _Skills;
+    QList<Skill> _Skills;
 
 public:
     SkillList();
-    QVector<Skill> getAllSkills(){return _Skills;}
+    QList<Skill> getAllSkills(){return _Skills;}
     void addNewSkill(Skill skill);
 };
 

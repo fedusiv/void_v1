@@ -17,7 +17,7 @@ SOURCES += \
         gui/gamegui.cpp \
         main.cpp \
         player/player.cpp \
-        player/playerstate.cpp
+        player/playerstate.cpp \
         skills/skill.cpp \
         skills/skilllist.cpp \
         skills/skillsqueue.cpp
@@ -41,7 +41,7 @@ HEADERS += \
     gamemanager.h \
     gui/gamegui.h \
     player/player.h \
-    player/playerstate.h
+    player/playerstate.h \
     skills/skill.h \
     skills/skill_class_types.h \
     skills/skilllist.h \
