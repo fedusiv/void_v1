@@ -10,4 +10,12 @@ ItemWeapon::~ItemWeapon()
 
 }
 
+ItemWeaponDamage ItemWeapon::getDamage()
+{
+    ItemWeaponDamage damage;
+    damage.damage = _AttributeWeapon.Damage;
+    damage.Type = _AttributeWeapon.Type;
+    return damage;
+}
+
 

@@ -16,6 +16,9 @@ SOURCES += \
         gamemanager.cpp \
         gui/gamegui.cpp \
         items/item.cpp \
+        items/itembelt.cpp \
+        items/itemcloth.cpp \
+        items/itemusable.cpp \
         items/itemweapon.cpp \
         main.cpp
 
@@ -37,5 +40,8 @@ HEADERS += \
     gamemanager.h \
     gui/gamegui.h \
     items/item.h \
+    items/itembelt.h \
+    items/itemcloth.h \
+    items/itemusable.h \
     items/itemweapon.h \
     return_codes.h

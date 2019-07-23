@@ -29,15 +29,32 @@ enum  ItemClothType{
     Legs,
     Feet,
     Accessorize,
-    NotCloth
+    ClothCount
 };
 
+/*
+ * Types of all usable items
+ */
+enum ItemUsableType
+{
+    Heal,
+    Damage,
+    Armor
+};
+
+/*
+ *  structure keep information about charge ability of Item
+ */
 typedef struct ItemChargeAbility
 {
     bool ReChargable;
     int Charges;
 }ItemChargeAbility;
 
+
+/*
+ * Main foundation of all Item properties
+ */
 typedef struct ItemAttribute
 {
     QString Name;
@@ -53,6 +70,9 @@ typedef struct ItemAttribute
     int NextLevelItem;
 }ItemAttribute;
 
+/*
+ * Additional  properties for Weapon
+ */
 typedef struct ItemWeaponAttribute
 {
     int Hands;
@@ -62,6 +82,55 @@ typedef struct ItemWeaponAttribute
     QList<MainStats> ScaleAttribute;
     ItemAttribute ItemBaseParameters;
 }ItemWeaponAttribute;
+
+/*
+ * Additional  properties for Usable Items
+ */
+typedef struct ItemUsableAttribute
+{
+    ItemUsableType Type;
+    int duration;
+    ItemAttribute ItemBaseParameters;
+}ItemUsableAttribute;
+
+/*
+ * Additional  properties for Cloth
+ */
+typedef struct ItemClothAttribute
+{
+    float Armor;
+    DamageTypes ArmorType;
+    ItemClothType ClothType;
+    ItemAttribute ItemBaseParameters;
+}ItemClothAttribute;
+
+/*
+ * Additional  properties for Usable Items
+ */
+typedef struct ItemBeltAttribute
+{
+    int size;
+    ItemAttribute ItemBaseParameters;
+}ItemBeltAttribute;
+
+/*
+ * Describe the damage property of weapon
+ */
+typedef struct ItemWeaponDamage
+{
+    float damage;
+    DamageTypes Type;
+}ItemWeaponDamage;
+
+/*
+ * Describe the armor property of cloth
+ */
+typedef struct ItemClothArmor
+{
+    float armor;
+    DamageTypes Type;
+}ItemClothArmor;
+
 
 class Item
 {
@@ -76,16 +145,16 @@ public:
     QString getDesc();    // return string about desc
     bool isEquipped();    // return flag of equipped status
     void setEquipped(bool status);  // set equipped or useless equip
-    ItemType getEquipType();
-    EquipReturnCode checkRequirments( int player_level, int ** type_points);  // return true if player can equip this element
+    ItemType getItemType();
+    EquipReturnCode checkRequirments( MainStatsRequire player_stats);  // return true if player can equip this element
 
 
 
     // virtual methods for children class
     virtual int getHands() { return 0;} // virtual method for weapon returns count of required hands
-    virtual ItemClothType getClothType() { return ItemClothType::NotCloth;} // virtual method for get type of cloth equipment
-    virtual float getDamage(){return 0.0;}                    // virtual method for weapon children, it return damage parametr
-    virtual float getArmor(){return 0.0;}                    // virtual method for cloth children, returns armor of cloth
+    virtual ItemClothType getClothType() { return ItemClothType::ClothCount;} // virtual method for get type of cloth equipment
+    virtual ItemWeaponDamage getDamage();                  // virtual method for weapon children, it return damage parametr
+    virtual ItemClothArmor getArmor();                    // virtual method for cloth children, returns armor of cloth
 
 protected:
     ItemAttribute _Attribute;           // all base parameters of Item

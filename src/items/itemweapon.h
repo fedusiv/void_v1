@@ -16,7 +16,7 @@ public:
     ~ItemWeapon() override;
 
     int getHands() override { return _AttributeWeapon.Hands;}
-    float getDamage() override { return _AttributeWeapon.Damage;}
+    ItemWeaponDamage getDamage() override;
 
 };
 
