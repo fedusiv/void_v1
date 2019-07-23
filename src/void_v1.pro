@@ -16,6 +16,7 @@ SOURCES += \
         gamemanager.cpp \
         gui/gamegui.cpp \
         items/item.cpp \
+        items/itemweapon.cpp \
         main.cpp
 
 RESOURCES += qml/qml.qrc
@@ -32,7 +33,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    common_types.h \
     gamemanager.h \
     gui/gamegui.h \
     items/item.h \
+    items/itemweapon.h \
     return_codes.h

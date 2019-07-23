@@ -3,37 +3,32 @@
 
 Item::Item(ItemAttribute attribute)
 {
-
+    _Attribute = attribute;
 }
 
 int Item::getLevel()
 {
-    return _Level;
+    return _Attribute.Level;
 }
 
 float Item::getWeight()
 {
-    return _Weight;
+    return _Attribute.Weight;
 }
 
 QString Item::getName()
 {
-    return _Name;
+    return _Attribute.Name;
 }
 
 void Item::setName(QString name)
 {
-    _Name = name;
-}
-
-QString Item::getInfo()
-{
-    return _Info;
+    _Attribute.Name = name;
 }
 
 QString Item::getDesc()
 {
-    return _Desc;
+    return _Attribute.Desc;
 }
 
 bool Item::isEquipped()
@@ -48,17 +43,12 @@ void Item::setEquipped(bool status)
 
 ItemType Item::getEquipType()
 {
-    return _Type;
+    return _Attribute.Type;
 }
 
 EquipReturnCode Item::checkRequirments(int player_level, int **type_points)
 {
     return EquipReturnCode::SUCCESS;
-}
-
-int * Item::getRequirments()
-{
-    return _RequiredPoints;
 }
 
 
