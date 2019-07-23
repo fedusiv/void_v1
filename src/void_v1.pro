@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         gamemanager.cpp \
         gui/gamegui.cpp \
+<<<<<<< HEAD
         main.cpp \
         player/player.cpp \
         player/playerstate.cpp \
@@ -22,6 +23,14 @@ SOURCES += \
         skills/skilllist.cpp \
         skills/skillsqueue.cpp
 
+=======
+        items/item.cpp \
+        items/itembelt.cpp \
+        items/itemcloth.cpp \
+        items/itemusable.cpp \
+        items/itemweapon.cpp \
+        main.cpp
+>>>>>>> feature/item
 
 RESOURCES += qml/qml.qrc
 
@@ -40,6 +49,7 @@ HEADERS += \
     common_types.h \
     gamemanager.h \
     gui/gamegui.h \
+<<<<<<< HEAD
     player/player.h \
     player/playerstate.h \
     skills/skill.h \
@@ -48,3 +58,11 @@ HEADERS += \
     skills/skillsqueue.h \
     skills/skillvalues.h
 
+=======
+    items/item.h \
+    items/itembelt.h \
+    items/itemcloth.h \
+    items/itemusable.h \
+    items/itemweapon.h \
+    return_codes.h
+>>>>>>> feature/item

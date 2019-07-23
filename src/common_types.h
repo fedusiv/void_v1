@@ -1,6 +1,5 @@
 #ifndef COMMON_TYPES_H
 #define COMMON_TYPES_H
-
 /*
  * Struct stores Data about requirments for Items or Skills
  */
