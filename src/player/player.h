@@ -2,21 +2,23 @@
 #define PLAYER_H
 
 #include "playerstate.h"
+#include "skills/skilllist.h"
+#include "skills/skillsqueue.h"
 /*
  * Class Player. It is all data about current player
  */
 
-class PLayer
+class Player
 {
 
 private:
     PlayerState * _PlayerState;     // pointer to object of Player's State
     // PlayerInventory
-    // Player Skills List
-    // Player Skill Queue
+    SkillList * _PlayerSkillsList;  // pointer to List with all list, that player has
+    SkillsQueue *_PlayerSkillQueue; // pointer to queue of Skills
 
 public:
-    PLayer();
+    Player();
 
 };
 

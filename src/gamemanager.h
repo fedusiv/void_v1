@@ -11,7 +11,7 @@ public:
 
 private:
     GameGui _gui;
-    PLayer _Player;
+    Player _Player;
 };
 
 #endif // GAMEMANAGER_H

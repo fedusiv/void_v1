@@ -1,6 +1,8 @@
 #include "player.h"
 
-PLayer::PLayer()
+Player::Player()
 {
     _PlayerState = new PlayerState();
+    _PlayerSkillsList = new SkillList();
+    _PlayerSkillQueue = new SkillsQueue();
 }
