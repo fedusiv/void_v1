@@ -19,7 +19,7 @@ private:
 
 public:
     Player();
-
+    void MakeWeaponHit(); // decision of Player from GUI
 };
 
 #endif // PLAYER_H

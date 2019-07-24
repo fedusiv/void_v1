@@ -13,9 +13,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    fight/fight.cpp \
         gamemanager.cpp \
         gui/gamegui.cpp \
         main.cpp \
+    monsters/monster.cpp \
         player/player.cpp \
         player/playerstate.cpp \
         skills/skill.cpp \
@@ -25,7 +27,8 @@ SOURCES += \
         items/itembelt.cpp \
         items/itemcloth.cpp \
         items/itemusable.cpp \
-        items/itemweapon.cpp \
+        items/itemweapon.cpp \ \
+    skills/skillweaponhit.cpp
 
 RESOURCES += qml/qml.qrc
 
@@ -42,8 +45,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     common_types.h \
+    fight/fight.h \
     gamemanager.h \
     gui/gamegui.h \
+    monsters/monster.h \
     player/player.h \
     player/playerstate.h \
     skills/skill.h \
@@ -56,4 +61,5 @@ HEADERS += \
     items/itemcloth.h \
     items/itemusable.h \
     items/itemweapon.h \
-    return_codes.h
+    return_codes.h \
+    skills/skillweaponhit.h

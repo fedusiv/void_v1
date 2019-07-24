@@ -4,6 +4,7 @@
 #include <QString>
 #include "skillvalues.h"
 #include "skill_class_types.h"
+#include "common_types.h"
 
 // Common types of Skill
 typedef enum SkillType
@@ -12,6 +13,14 @@ typedef enum SkillType
     Defence,                   // Some changes in processing damage
     Common                   // All other
 }SkillType;
+
+// Common types of Skill
+typedef enum SkillTypesAttack
+{
+    WeaponHit,                 // Weapon hit make form as Skill
+    Count
+}SkillTypesAttack;
+
 
 // Information About Skill target
 typedef enum SkillTarget
@@ -58,11 +67,12 @@ class Skill
 {
 
 public:
+    Skill();//Use only with inherited! be sure this is constructor doesn't setup correctly settings.
     Skill(SkillAttribute attribute);
     // method for Change Damage
     // method for Change Defence
-
-private:
+    SkillTypesAttack getSkillTypesAttack();
+protected:
     QString _Name;
     QString _Desc;
     SkillDurationInformation _Duration;
@@ -72,5 +82,6 @@ private:
     SkillClassTypes _ClassType;
     bool _Active;
 
+    SkillTypesAttack _SkillTypesAttack;
 };
 #endif //SKILL_H

@@ -11,6 +11,7 @@
 
 /*
  * Types of all equipments
+ *
  */
 enum class ItemType{
     Weapon,
@@ -113,14 +114,6 @@ typedef struct ItemBeltAttribute
     ItemAttribute ItemBaseParameters;
 }ItemBeltAttribute;
 
-/*
- * Describe the damage property of weapon
- */
-typedef struct ItemWeaponDamage
-{
-    float damage;
-    DamageTypes Type;
-}ItemWeaponDamage;
 
 /*
  * Describe the armor property of cloth

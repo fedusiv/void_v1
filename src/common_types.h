@@ -1,5 +1,8 @@
 #ifndef COMMON_TYPES_H
 #define COMMON_TYPES_H
+
+#include <QList>
+
 /*
  * Struct stores Data about requirments for Items or Skills
  */
@@ -34,18 +37,42 @@ typedef enum DamageTypes
     DamageTypes_Count
 }DamageTypes;
 
+typedef enum WeaponHands
+{
+    Main,
+    Second,
+    Both
+}WeaponHands;
+
+/*
+ * Describe the damage property of weapon
+ */
+typedef struct ItemWeaponDamage
+{
+    float damage;
+    DamageTypes Type;
+    QList<float> ScaleValue;
+    QList<MainStats> ScaleAttribute;
+    WeaponHands Hand;
+}ItemWeaponDamage;
+
 /*
  * Struct stores inforamation about Player's damage from weapon
  */
 typedef struct PlayerWeaponDamage
 {
-    DamageTypes MWDamageType;   // Main Weapon
-    float       MWDamage;
-    DamageTypes SWDamageType;   // Second Weapon
-    float       SWDamage;
-    int amout;                  // all amount of weapons
-
+    ItemWeaponDamage       MWDamage;
+    ItemWeaponDamage       SWDamage;
 }PlayerWeaponDamage;
+
+/*
+ * Struct holds information about Armor
+ */
+typedef struct ArmorValue
+{
+    float Armor;
+    DamageTypes ArmorType;
+}ArmorValue;
 
 /*
  * List of All Classes in the game

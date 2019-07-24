@@ -6,3 +6,8 @@ Player::Player()
     _PlayerSkillsList = new SkillList();
     _PlayerSkillQueue = new SkillsQueue();
 }
+
+void Player::MakeWeaponHit()
+{
+    _PlayerState->getPlayerDamage();
+}

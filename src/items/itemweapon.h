@@ -16,7 +16,7 @@ public:
     ~ItemWeapon() override;
 
     int getHands() override { return _AttributeWeapon.Hands;}
-    ItemWeaponDamage getDamage() override;
+    ItemWeaponDamage getDamage() override;              // Please be sure that you need to set Hand in the inventory
 
 };
 

@@ -56,3 +56,19 @@ void PlayerState::changeLearParameter(ClassList playerClass, int value)
 {
     _LearState.insert(playerClass,value);
 }
+
+void PlayerState::setWeaponDamage(ItemWeaponDamage itemDamage)
+{
+    if ( itemDamage.Hand != WeaponHands::Second )
+    {
+        _PlayerWeaponDamage.MWDamage = itemDamage;
+    }else
+    {
+        _PlayerWeaponDamage.SWDamage = itemDamage;
+    }
+}
+
+PlayerWeaponDamage PlayerState::getPlayerDamage()
+{
+    return _PlayerWeaponDamage;
+}

@@ -16,10 +16,10 @@ private:
     float _Health;          // Current Health of Player
     float _HealthMax;       // Maximum value of Health
     float _InventoryWeight; // Maximum carrying power of Player
-    int _Level;             // Current level of PLayer
+    int _Level;             // Current level of Player
     int _Step;              // Current Step
     QVector<float> _Armor;    // Armor parameters of Player
-    PlayerWeaponDamage _PlayerWeaponDamage;
+    PlayerWeaponDamage _PlayerWeaponDamage; // damage from weapon
     QMap<ClassList,int> _LearState;  //set of Classes's which Player stores
 
     // methods part
@@ -47,6 +47,9 @@ public:
 
     void changeLearParameter(ClassList playerClass, int value);   // change one parametr of Lear state
     QMap<ClassList, int> getLearState() { return _LearState;}// return Lear State of Player
+
+    void setWeaponDamage(ItemWeaponDamage itemDamage);      // sets playerweapondamage, must be called from inventory.
+    PlayerWeaponDamage getPlayerDamage();
 
 };
 

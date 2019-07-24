@@ -10,3 +10,8 @@ Skill::Skill(SkillAttribute attribute)
     _ClassType = static_cast<SkillClassTypes>(attribute.SkillType.ClassType);
     _Active = attribute.Active;
 }
+
+SkillTypesAttack Skill::getSkillTypesAttack()
+{
+    return _SkillTypesAttack;
+}
