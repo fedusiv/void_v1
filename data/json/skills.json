@@ -1,0 +1,9 @@
+[
+	{
+		"name": "Test skill",
+		"desc": "some kind of forgotten skill from non-existing spellbook...",
+		"duratnion": "next_fight",
+		"target": "self",
+		"skilltype": "skill_type" #???
+	}
+]
