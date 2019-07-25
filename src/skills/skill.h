@@ -5,6 +5,7 @@
 #include "skillvalues.h"
 #include "skill_class_types.h"
 #include "common_types.h"
+#include "skills_description.h"
 
 // Common types of Skill
 typedef enum SkillType
@@ -13,14 +14,6 @@ typedef enum SkillType
     Defence,                   // Some changes in processing damage
     Common                   // All other
 }SkillType;
-
-// Common types of Skill
-typedef enum SkillTypesAttack
-{
-    WeaponHit,                 // Weapon hit make form as Skill
-    Count
-}SkillTypesAttack;
-
 
 // Information About Skill target
 typedef enum SkillTarget
@@ -57,31 +50,40 @@ typedef struct  SkillAttribute
     SkillDurationInformation Duration;  // information about skill duration
     SkillTarget Target; // Tell what is the target of Skill
     SkillAttributeType SkillType;   // information about all types of skill
-    uint32_t Values; // it is 32 bit's for storing all required digital values
+    uint64_t Values; // it is 64 bit's for storing all required digital values
     int Lear;       // Here is information about Lear. In future must be changed from int to Lear Struct
     bool Active;
 }SkillAttribute;
 
+/*
+ * struct holds info only accurate about skills attack type
+ */
+typedef struct SkillAttackAttribure
+{
+    uint64_t Values; // it is 64 bit's for storing all required digital value
+    SkillAttackAmp Type;
+    SkillAttribute BaseAttribute;
+}SkillAttackAttribure;
 
 class Skill
 {
 
 public:
-    Skill();//Use only with inherited! be sure this is constructor doesn't setup correctly settings.
+    virtual ~Skill();
+    Skill();// Use very carefully
     Skill(SkillAttribute attribute);
     // method for Change Damage
     // method for Change Defence
-    SkillTypesAttack getSkillTypesAttack();
+
 protected:
     QString _Name;
     QString _Desc;
     SkillDurationInformation _Duration;
     SkillTarget _Target;
     SkillType _SkillType;
-    SkillValues * _SkillValues;
+    //SkillValues * _SkillValues;
     SkillClassTypes _ClassType;
     bool _Active;
 
-    SkillTypesAttack _SkillTypesAttack;
 };
 #endif //SKILL_H

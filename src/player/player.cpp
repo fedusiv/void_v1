@@ -7,7 +7,8 @@ Player::Player()
     _PlayerSkillQueue = new SkillsQueue();
 }
 
-void Player::MakeWeaponHit()
+ResultDamage Player::MakeWeaponHit(WeaponHands hand)
 {
-    _PlayerState->getPlayerDamage();
+   PlayerWeaponDamage damage =  _PlayerState->getPlayerDamage();    // get damage of all two hands
+   return _PlayerSkillQueue->makeWeaponHit(damage, hand);           // put this damage to skill processing and return just simple result
 }

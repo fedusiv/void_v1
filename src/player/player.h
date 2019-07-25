@@ -4,6 +4,7 @@
 #include "playerstate.h"
 #include "skills/skilllist.h"
 #include "skills/skillsqueue.h"
+#include "common_types.h"
 /*
  * Class Player. It is all data about current player
  */
@@ -19,7 +20,7 @@ private:
 
 public:
     Player();
-    void MakeWeaponHit(); // decision of Player from GUI
+    ResultDamage MakeWeaponHit(WeaponHands hand); // decision of Player from GUI to make just hit by weapon
 };
 
 #endif // PLAYER_H

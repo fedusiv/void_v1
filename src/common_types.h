@@ -2,6 +2,8 @@
 #define COMMON_TYPES_H
 
 #include <QList>
+#include <QVector>
+
 
 /*
  * Struct stores Data about requirments for Items or Skills
@@ -37,6 +39,9 @@ typedef enum DamageTypes
     DamageTypes_Count
 }DamageTypes;
 
+/*
+ * In what hand Weapon
+ */
 typedef enum WeaponHands
 {
     Main,
@@ -52,7 +57,7 @@ typedef struct ItemWeaponDamage
     float damage;
     DamageTypes Type;
     QList<float> ScaleValue;
-    QList<MainStats> ScaleAttribute;
+    MainStats ScaleAttribute;
     WeaponHands Hand;
 }ItemWeaponDamage;
 
@@ -64,6 +69,15 @@ typedef struct PlayerWeaponDamage
     ItemWeaponDamage       MWDamage;
     ItemWeaponDamage       SWDamage;
 }PlayerWeaponDamage;
+
+/*
+ * Result, what affect to target
+ */
+typedef struct ResultDamage
+{
+    QVector<float> damage;
+    QVector<DamageTypes> type;
+}ResultDamage;
 
 /*
  * Struct holds information about Armor

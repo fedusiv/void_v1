@@ -12,7 +12,7 @@
 class SkillValues
 {
 public:
-    SkillValues(uint32_t values, int classType, int lear)
+    SkillValues(uint64_t values, int classType, int lear)
     {
         Q_UNUSED(values);
         Q_UNUSED(classType);

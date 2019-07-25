@@ -76,11 +76,11 @@ typedef struct ItemAttribute
  */
 typedef struct ItemWeaponAttribute
 {
-    int Hands;
+    WeaponHands Hands;
     float Damage;
     DamageTypes Type;
     QList<float> ScaleValue;
-    QList<MainStats> ScaleAttribute;
+    MainStats ScaleAttribute;
     ItemAttribute ItemBaseParameters;
 }ItemWeaponAttribute;
 
