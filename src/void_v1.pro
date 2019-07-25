@@ -13,6 +13,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        db/dbmanager.cpp \
     fight/fight.cpp \
         gamemanager.cpp \
         gui/gamegui.cpp \
@@ -46,6 +47,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     common_types.h \
+    db/dbmanager.h \
     fight/fight.h \
     gamemanager.h \
     gui/gamegui.h \
