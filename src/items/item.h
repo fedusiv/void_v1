@@ -60,7 +60,7 @@ typedef struct ItemAttribute
 {
     QString Name;
     QString Desc;
-    ItemType Type;
+    ItemType Type; //QUESTION: if we make this Q_ENUM we can store it's values with strings in json (see QMetaEnum and keyToValue())
     //Lear,
     MainStatsRequire Requirements;
     int Level;
@@ -128,7 +128,7 @@ typedef struct ItemClothArmor
 class Item
 {
 public:
-    Item(ItemAttribute attribute);
+    Item(ItemAttribute attribute); //QUESTION: maybe don't copy that? ptr or std::move, donno
     virtual ~Item(){}
 
     int getLevel(); // returns equipment level

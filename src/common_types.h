@@ -16,6 +16,17 @@ typedef struct MainStatsRequire
     int Level;
 }StatsRequire;
 
+//SUGGESTION:
+/* maybe do this:
+
+enum StatsKeys {Strength, Agility, Intelligence, Level, StatsCount};
+typedef int StatsRequire[StatsCount];
+
+ * and when you need stat, you get it like this:
+ * StatsRequire stats;
+ * int str = stats[Strength];
+ */
+
 /*
  * Struct stores Main PLayer's Stats type
  */
