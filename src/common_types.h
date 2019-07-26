@@ -4,38 +4,36 @@
 #include <QList>
 #include <QVector>
 
+/*
+ * Type stores Main PLayer's Stats type
+ * use it like this:
+ *
+ * MainStats mstats_;
+ * int str = mstats_[Strength];
+ */
+enum MainStatNames
+{
+    Strength,
+    Agility,
+    Intelligence,
+    MainStatsCount
+};
+
+typedef int MainStats[MainStatsCount];
+
 
 /*
- * Struct stores Data about requirments for Items or Skills
+ * Type stores Data about requirments for Items or Skills
+ * store same values as MainStats + Level
+ * use it like MainStats
  */
-typedef struct MainStatsRequire
+enum RequireStatNames
 {
-    int Strength;
-    int Agility;
-    int Intelligence;
-    int Level;
-}StatsRequire;
+    Level = Intelligence + 1,
+    RequireStatsCount
+};
 
-//SUGGESTION:
-/* maybe do this:
-
-enum StatsKeys {Strength, Agility, Intelligence, Level, StatsCount};
-typedef int StatsRequire[StatsCount];
-
- * and when you need stat, you get it like this:
- * StatsRequire stats;
- * int str = stats[Strength];
- */
-
-/*
- * Struct stores Main PLayer's Stats type
- */
-typedef struct MainStats
-{
-    int Strength;
-    int Agility;
-    int Intelligence;
-}MainStats;
+typedef int StatsRequire[RequireStatsCount];
 
 /*
  * List of Damage and Armor types in the game
