@@ -3,7 +3,7 @@
 		"name": "Test item",
 		"desc": "some stick with poo on it - use wisely!",
 		"type": "weapon",
-		"reqstats": [10,9,8],
+		"reqstats": [10,9,8,8],
 		"level": 7,
 		"weight": 6,
 		"img": "poostick.png"
