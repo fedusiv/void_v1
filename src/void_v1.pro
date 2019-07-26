@@ -51,6 +51,7 @@ HEADERS += \
     fight/fight.h \
     gamemanager.h \
     gui/gamegui.h \
+    lear/class_list.h \
     monsters/monster.h \
     player/player.h \
     player/playerstate.h \

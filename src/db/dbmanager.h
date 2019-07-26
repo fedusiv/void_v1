@@ -7,6 +7,7 @@
 #include <QJsonObject>
 #include <QHash>
 
+
 class GameFactory
 {
 public:

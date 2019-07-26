@@ -99,17 +99,5 @@ typedef struct ArmorValue
     DamageTypes ArmorType;
 }ArmorValue;
 
-/*
- * List of All Classes in the game
- */
-typedef enum ClassList
-{
-    Assassin,
-    Rogue,
-    Mage,
-    Warrior,
-    Knight,
-    RaceCount
-}ClassList;
 
 #endif // COMMON_TYPES_H

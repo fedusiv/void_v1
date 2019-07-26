@@ -2,10 +2,12 @@
 #define SKILL_H
 // TODO : add memory aligment to all struct with bit sets
 #include <QString>
+#include <QVector>
 #include "skillvalues.h"
 #include "skill_class_types.h"
 #include "common_types.h"
 #include "skills_description.h"
+#include "lear/class_list.h"
 
 // Common types of Skill
 typedef enum SkillType
@@ -50,8 +52,8 @@ typedef struct  SkillAttribute
     SkillDurationInformation Duration;  // information about skill duration
     SkillTarget Target; // Tell what is the target of Skill
     SkillAttributeType SkillType;   // information about all types of skill
-    uint64_t Values; // it is 64 bit's for storing all required digital values
-    int Lear;       // Here is information about Lear. In future must be changed from int to Lear Struct
+    // REMOVE Values
+    LearClassList Lear;       // Here is information about Lear. In future must be changed from int to Lear Struct
     bool Active;
 }SkillAttribute;
 
@@ -60,7 +62,7 @@ typedef struct  SkillAttribute
  */
 typedef struct SkillAttackAttribure
 {
-    uint64_t Values; // it is 64 bit's for storing all required digital value
+    QVector<float> Values;
     SkillAttackAmp Type;
     SkillAttribute BaseAttribute;
 }SkillAttackAttribure;

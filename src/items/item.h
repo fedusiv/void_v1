@@ -8,7 +8,7 @@
 #include "return_codes.h"
 
 #include "common_types.h"
-
+#include "lear/class_list.h"
 /*
  * Types of all equipments
  *
@@ -58,17 +58,18 @@ typedef struct ItemChargeAbility
  */
 typedef struct ItemAttribute
 {
+    QString id;
     QString Name;
     QString Desc;
     ItemType Type; //QUESTION: if we make this Q_ENUM we can store it's values with strings in json (see QMetaEnum and keyToValue())
-    //Lear,
+    QList<LearClassList> Lear;      // store array of classes
     MainStatsRequire Requirements;
     int Level;
     float Weight;
-    uint32_t values;
+    // Remove values
     ItemChargeAbility Chargability;
     QString image;
-    int NextLevelItem;
+    QString NextLevelItem;
 }ItemAttribute;
 
 /*
