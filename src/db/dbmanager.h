@@ -1,25 +1,22 @@
 #ifndef DBMANAGER_H
 #define DBMANAGER_H
 
-// #include <skills/skill.h>
-// #include <items/item.h>
+#include <skills/skill.h>
+#include <items/item.h>
 
 #include <QJsonObject>
 #include <QHash>
 
-class Skill;
-class Item;
-
-class GameDataManager
+class GameFactory
 {
 public:
-    GameDataManager();
+    GameFactory();
 
     Item* getItem(QString name);
     Skill* getSkill(QString name);
 
 private:
-    QJsonObject getJsonFromFile(QString name);
+    QJsonDocument getJsonFromFile(QString name);
     void initItems();
     void initSkills();
 

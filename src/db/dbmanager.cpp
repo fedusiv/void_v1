@@ -1,32 +1,33 @@
 #include "dbmanager.h"
 
 #include <QFile>
+#include <QJsonDocument>
 
-GameDataManager::GameDataManager()
+GameFactory::GameFactory()
     : _filesPath("../../data/json/")
 {
     initItems();
     initSkills();
 }
 
-void GameDataManager::initItems()
+void GameFactory::initItems()
 {
-    QJsonObject itemsObj = getJsonFromFile("items.json");
+    QJsonDocument itemsDoc = getJsonFromFile("items.json");
 
     //parse items
 }
 
-void GameDataManager::initSkills()
+void GameFactory::initSkills()
 {
-    QJsonObject itemsObj = getJsonFromFile("skills.json");
+    QJsonDocument skillsDoc = getJsonFromFile("skills.json");
 
-    //parse skills
+    //TODO: parse skills
 }
 
-QJsonObject GameDataManager::getJsonFromFile(QString name)
+QJsonDocument GameFactory::getJsonFromFile(QString name)
 {
     QFile file(_filesPath + name);
     file.open(QIODevice::ReadOnly);
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
-    return doc.object();
+    return doc;
 }
