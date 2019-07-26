@@ -2,6 +2,17 @@
 /*
 	Please dont be greedy for comments.
 	If you can leave comments, leave it
+	
+	Use this keywords to spesify comment's purpose:
+	
+		//TODO: - as placeholder with description of what should be here 
+			or as reminder to yourself to add something
+			
+		//QUESTION: - if you don't understand or doupt other's code
+		
+		//SUGGESTION: - if you have an idea how to improve something
+		
+		//BUG: - if you see a possible error or undefined behavior
  */
 
 
