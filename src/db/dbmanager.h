@@ -18,6 +18,8 @@ public:
 
 private:
     QJsonDocument getJsonFromFile(QString name);
+    void readAttribute(QJsonObject item, ItemAttribute& outAttribute);
+
     void initItems();
     void initSkills();
 
@@ -26,5 +28,4 @@ private:
     QHash<QString, Item*> _items;
     QHash<QString, Skill*> _skills;
 };
-
 #endif //DBMANAGER_H

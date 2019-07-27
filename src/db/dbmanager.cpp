@@ -4,6 +4,10 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 
+#include <minmax.h>
+
+#include <lear/class_list.h>
+
 GameFactory::GameFactory()
     : _filesPath("../../data/json/")
 {
@@ -24,24 +28,7 @@ void GameFactory::initItems()
         {
             if(itemValue_.isObject())
             {
-                item_ = itemValue_.toObject();
-                itemAttribute_.Name = item_["name"].toString();
-                itemAttribute_.Desc = item_["desc"].toString();
-                itemAttribute_.Type = ItemType::Weapon; //TODO: redo with Q_ENUM and keyToValue()
-                itemAttribute_.Level = item_["level"].toInt();
-                itemAttribute_.Weight = item_["weight"].toDouble();
-                itemAttribute_.image = item_["img"].toString();
-                itemAttribute_.NextLevelItem = item_["nextlevel"].toInt(); //QUESTION: why is it int again?..
-
-                // NOTE:
-                // if we make Requirements as int array this thing will look MUCH cleaner
-                // with one short loop
-                QJsonArray reqstats_ = item_["reqstats"].toArray();
-                itemAttribute_.Requirements.Strength = reqstats_[0].toInt();
-                itemAttribute_.Requirements.Agility = reqstats_[1].toInt();
-                itemAttribute_.Requirements.Intelligence = reqstats_[2].toInt();
-                itemAttribute_.Requirements.Level = reqstats_[3].toInt();
-
+                readAttribute(itemValue_.toObject(), itemAttribute_);
                 _items.insert(itemAttribute_.Name, new Item(itemAttribute_));
             }
             else
@@ -69,4 +56,37 @@ QJsonDocument GameFactory::getJsonFromFile(QString name)
     file_.open(QIODevice::ReadOnly);
     QJsonDocument doc_ = QJsonDocument::fromJson(file_.readAll());
     return doc_;
+}
+
+void GameFactory::readAttribute(QJsonObject item, ItemAttribute &outAttribute)
+{
+    // parsing basic values:
+
+    outAttribute.id = item["id"].toString();
+    outAttribute.Name = item["name"].toString();
+    outAttribute.Desc = item["desc"].toString();
+    // outAttribute.Type must be defined by input file
+    outAttribute.Level = item["level"].toInt();
+    outAttribute.Weight = item["weight"].toDouble();
+    outAttribute.image = item["img"].toString();
+    outAttribute.NextLevelItem = item["nextlevel"].toString();
+
+    // parsing arrays:
+
+    QJsonArray reqstats_ = item["reqstats"].toArray();
+    for (int stat = 0; stat < min(RequireStatsCount, reqstats_.size()); stat++)
+    {
+      outAttribute.Requirements[stat] = reqstats_[stat].toInt();
+    }
+
+    QJsonArray lears_ = item["lears"].toArray();
+    Lear lear_;
+    for (QJsonValue jsonLear_ : lears_)
+    {
+        lear_ = strToLear(jsonLear_.toString());
+        if(lear_ < LearCount)
+        {
+            outAttribute.Lears.append(lear_);
+        }
+    }
 }
