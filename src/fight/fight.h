@@ -17,6 +17,7 @@ private slots:
     void onPlayerMakeWeaponHit(SkillAttackResult * attack);
     void monsterPhase();
     void endMosnterDead();
+    void endPlayerDead();
 public:
     Fight(Player * player, Monster * monster);
 

@@ -6,6 +6,7 @@
 #include "skills/skillsqueue.h"
 #include "skills/skillattack.h"
 #include "common_types.h"
+#include "return_codes.h"
 /*
  * Class Player. It is all data about current player
  */
@@ -22,7 +23,7 @@ private:
 public:
     Player();
     void MakeWeaponHit(WeaponHands hand); // decision of Player from GUI to make just hit by weapon
-
+    FighterLiveStatus defenceFromMonster(SkillAttackResult * attack);   // defence from Mosnter
 signals:
     void playerMakeWeaponHit(SkillAttackResult * attack);
 };

@@ -25,10 +25,20 @@ void Fight::onPlayerMakeWeaponHit(SkillAttackResult * attack)
 
 void Fight::monsterPhase()
 {
-
+   FighterLiveStatus result =  _Player->defenceFromMonster( _Monster->attackPhase() );
+    if ( result == FighterLiveStatus::Death)
+    {
+        endPlayerDead();
+    }
+    // else need to continue Fight
 }
 
 void Fight::endMosnterDead()
+{
+
+}
+
+void Fight::endPlayerDead()
 {
 
 }

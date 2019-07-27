@@ -14,11 +14,12 @@ typedef struct MonsterAttribute
     QString Desc;                   // Lore description
     QString Picture;                // image of monster
     PlayerWeaponDamage DamageStruct;// description of standart damage
+    WeaponHands Hand;
     SkillList SkillsList;
     // Combinations
     int Level;
     float Health;
-    QList<ArmorValue> Armor;
+    ArmorValue Armor;
     //Rules for using weapon skills and combinations
 }MonsterAttribute;
 
@@ -31,7 +32,8 @@ protected:
     FighterLiveStatus reduceHealth(float value);
 public:
     Monster(MonsterAttribute attribute);
-    void defencePhaseFromWeaponHit(SkillAttackResult * attack);
+    FighterLiveStatus defencePhaseFromWeaponHit(SkillAttackResult * attack);
+    SkillAttackResult * attackPhase();
 };
 
 #endif // MONSTER_H

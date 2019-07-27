@@ -12,6 +12,13 @@ FighterLiveStatus  Monster::defencePhaseFromWeaponHit(SkillAttackResult *attack)
    return reduceHealth(damage_);
 }
 
+SkillAttackResult *Monster::attackPhase()
+{
+    // TODO : it is temporary
+    SkillAttackResult * attack = _SkillQueue->makeWeaponHit(_Attribute.DamageStruct, _Attribute.Hand);
+    return attack;
+}
+
 
 FighterLiveStatus Monster::reduceHealth(float value)
 {

@@ -4,7 +4,7 @@
 #include <QVector>
 #include <QMap>
 #include "common_types.h"
-
+#include "return_codes.h"
 /*
  * Player State object holds information about Player parameters
  */
@@ -30,6 +30,8 @@ public:
 
     void setHealth(float health);               // setter of Health
     void setHealthMax(float health);            // setter of Health Max
+    FighterLiveStatus reduceHealth();           // reduce Health in Fight
+
     float getHealth() { return _Health;}        // get Health
     float getHealthMax() {return _HealthMax;}   // get max Health
 

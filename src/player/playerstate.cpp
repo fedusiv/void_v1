@@ -42,6 +42,16 @@ void PlayerState::setHealthMax(float health)
     _HealthMax = health;
 }
 
+FighterLiveStatus PlayerState::reduceHealth(float damage)
+{
+    _Health -= damage;
+    if ( _Health <= 0)
+    {
+        return FighterLiveStatus::Death;
+    }
+    return  FighterLiveStatus::Life;
+}
+
 /*
  * @desc : change one of the Armor parameters
  * @param: damage Type
