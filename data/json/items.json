@@ -1,12 +1,13 @@
 [
 	{
-		"name": "Test item",
+		"id": "unique_item_id",
+		"name": "Test item - this name is for view only",
 		"desc": "some stick with poo on it - use wisely!",
-		"type": "weapon",
-		"reqstats": [10,9,8,8],
-		"level": 7,
-		"weight": 6,
-		"img": "poostick.png"
-		"nextlevel": 5
+		"lears": ["Mage", "grey", "Rogue", "This_Is_Invalid_Lear"],
+		"reqstats": [10,9,8,7],
+		"level": 6,
+		"weight": 5.669,
+		"img": "poostick.png",
+		"nextlevel": "big_poo_stick_id"
 	}
 ]
