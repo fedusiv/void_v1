@@ -72,7 +72,13 @@ class Skill
 
 public:
     virtual ~Skill();
-    Skill();// Use very carefully
+    Skill() // Use very carefully
+    {
+        // I had to implement default constructor
+        // because otherwise SkillWeaponHit throws unresolved external
+        // now i can see what is "Use very carefully" :)
+    }
+
     Skill(SkillAttribute attribute);
     // method for Change Damage
     // method for Change Defence

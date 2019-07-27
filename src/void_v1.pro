@@ -13,23 +13,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        db/dbmanager.cpp \
+    db/dbmanager.cpp \
     fight/fight.cpp \
-        gamemanager.cpp \
-        gui/gamegui.cpp \
-        main.cpp \
+    gamemanager.cpp \
+    gui/gamegui.cpp \
+    main.cpp \
     monsters/monster.cpp \
-        player/player.cpp \
-        player/playerstate.cpp \
-        skills/skill.cpp \
+    player/player.cpp \
+    player/playerstate.cpp \
+    skills/skill.cpp \
     skills/skillattack.cpp \
-        skills/skilllist.cpp \
-        skills/skillsqueue.cpp \
-        items/item.cpp \
-        items/itembelt.cpp \
-        items/itemcloth.cpp \
-        items/itemusable.cpp \
-        items/itemweapon.cpp \ \
+    skills/skilllist.cpp \
+    skills/skillsqueue.cpp \
+    items/item.cpp \
+    items/itembelt.cpp \
+    items/itemcloth.cpp \
+    items/itemusable.cpp \
+    items/itemweapon.cpp \
     skills/skillweaponhit.cpp
 
 RESOURCES += qml/qml.qrc
