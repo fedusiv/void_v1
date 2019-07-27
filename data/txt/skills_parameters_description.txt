@@ -1,0 +1,11 @@
+Skill Attack Parameters
+
+
+
+	critical - struct stores value of crit value ( 1.2, 4) damage multiplier
+				and critical chance ( 0.2, 0.17) probability from 0..1
+
+	damageWeaponConst - increase starting weapon damage by addition
+	damageWeaponMulti - increase starting weapon damage by multiplication ( 0.2, 0.45)
+	
+

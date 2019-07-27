@@ -22,6 +22,7 @@ SOURCES += \
         player/player.cpp \
         player/playerstate.cpp \
         skills/skill.cpp \
+    skills/skill_defence.cpp \
     skills/skillattack.cpp \
         skills/skilllist.cpp \
         skills/skillsqueue.cpp \
@@ -56,6 +57,7 @@ HEADERS += \
     player/playerstate.h \
     skills/skill.h \
     skills/skill_class_types.h \
+    skills/skill_defence.h \
     skills/skillattack.h \
     skills/skilllist.h \
     skills/skills_description.h \

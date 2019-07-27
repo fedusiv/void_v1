@@ -17,15 +17,27 @@ private:
     PlayerWeaponDamage  _Damage;
     WeaponHands         _Hand;
 
+    ArmorValue _EnemyArmor;
+    ResultDamage _ResultDamage;
 
-    DamageTypes damageTypesChanger[DamageTypes::DamageTypes_Count];
+    DamageTypes _damageTypesChanger[DamageTypes::DamageTypes_Count];
 
+    float criticalCalculate();
+    void reduceDamageOfArmor();
 public:
     // constructor for weapon style attack
     SkillAttackResult(PlayerWeaponDamage damage, WeaponHands hand);
-    ResultDamage calculateDamage();
-    void addNewCritical(float value, float chance);
+    void calculateBefore();     // calculations before send attack to enemy
+    float calculateFinal();      // calculations to make damage to Health
+
+    void addNewCritical(criticalParam critical);
+    void reduceAllCritical(criticalParam critical);
     void changeTypeFromTo(DamageTypes from, DamageTypes to);
+    void changeWeaponDamage(float constant, float multi);
+    void addHandHit();
+    void changeScaleValue(MainStatsScale constant, MainStatsScale multi);
+    void changeStatsValue(MainStatsScale constant, MainStatsScale multi);
+
 };
 
 
@@ -37,14 +49,18 @@ protected:
     // struct describe, what field must be changed
     struct values
     {
-        float criticalValue;
-        float criticalChanse;
+        criticalParam critical;
+
         float damagePrevConst;
         float damagePostConst;
+
         float damagePrevMulti;
         float damagePostMulti;
-        float scaleValueMulti;
-        QVector<float> scaleValueConst;
+
+        MainStatsScale scaleValueMulti;
+        MainStatsScale scaleValueConst;
+        MainStatsScale statsValueMulti;
+        MainStatsScale statsValueConst;
         WeaponHands hand;
         DamageTypes newType;
         DamageTypes fromType;
@@ -57,6 +73,10 @@ public:
 private:
     void processCritical(SkillAttackResult * attack);
     void ChangeTypeFromTo(SkillAttackResult * attack);
+    void AddHandHit(SkillAttackResult * attack);
+    void changeWeaponDamage(SkillAttackResult * attack);
+    void changeScaleValue(SkillAttackResult * attack);
+    void changeStatsValue(SkillAttackResult * attack);
 };
 
 #endif // SKILLATTACK_H

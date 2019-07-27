@@ -49,7 +49,7 @@ public:
     QMap<ClassList, int> getLearState() { return _LearState;}// return Lear State of Player
 
     void setWeaponDamage(ItemWeaponDamage itemDamage);      // sets playerweapondamage, must be called from inventory.
-    PlayerWeaponDamage getPlayerDamage();
+    PlayerWeaponDamage getPlayerWeaponDamage();
 
 };
 

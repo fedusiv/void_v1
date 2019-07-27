@@ -50,7 +50,6 @@ typedef struct  SkillAttribute
     SkillDurationInformation Duration;  // information about skill duration
     SkillTarget Target; // Tell what is the target of Skill
     SkillAttributeType SkillType;   // information about all types of skill
-    uint64_t Values; // it is 64 bit's for storing all required digital values
     int Lear;       // Here is information about Lear. In future must be changed from int to Lear Struct
     bool Active;
 }SkillAttribute;
@@ -60,10 +59,18 @@ typedef struct  SkillAttribute
  */
 typedef struct SkillAttackAttribure
 {
-    uint64_t Values; // it is 64 bit's for storing all required digital value
     SkillAttackAmp Type;
     SkillAttribute BaseAttribute;
 }SkillAttackAttribure;
+
+/*
+ * struct holds info only accurate about skills attack type
+ */
+typedef struct SkillDefenceAttribure
+{
+    SkillDefenceAmp Type;
+    SkillAttribute BaseAttribute;
+}SkillDefenceAttribure;
 
 class Skill
 {
@@ -72,18 +79,9 @@ public:
     virtual ~Skill();
     Skill();// Use very carefully
     Skill(SkillAttribute attribute);
-    // method for Change Damage
-    // method for Change Defence
-
+    int checkDuration();
 protected:
-    QString _Name;
-    QString _Desc;
-    SkillDurationInformation _Duration;
-    SkillTarget _Target;
-    SkillType _SkillType;
-    //SkillValues * _SkillValues;
-    SkillClassTypes _ClassType;
-    bool _Active;
+    SkillAttribute _Attribute;
 
 };
 #endif //SKILL_H

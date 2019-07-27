@@ -68,7 +68,7 @@ void PlayerState::setWeaponDamage(ItemWeaponDamage itemDamage)
     }
 }
 
-PlayerWeaponDamage PlayerState::getPlayerDamage()
+PlayerWeaponDamage PlayerState::getPlayerWeaponDamage()
 {
     // BE CARE! Inside inventory and item, main stats shows just whicj main stats are using, 0 and 1
     // Out in skills and player state, they multiply according to Main Stats

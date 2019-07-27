@@ -6,6 +6,7 @@
 #include "common_types.h"
 #include "skills/skilllist.h"
 #include "skills/skillsqueue.h"
+#include "return_codes.h"
 
 typedef struct MonsterAttribute
 {
@@ -26,8 +27,11 @@ class Monster
 {
 protected:
     MonsterAttribute _Attribute;
+    SkillsQueue * _SkillQueue;
+    FighterLiveStatus reduceHealth(float value);
 public:
     Monster(MonsterAttribute attribute);
+    void defencePhaseFromWeaponHit(SkillAttackResult * attack);
 };
 
 #endif // MONSTER_H

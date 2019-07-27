@@ -27,6 +27,22 @@ typedef struct MainStats
 }MainStats;
 
 /*
+ * Struct stores scales values
+ */
+typedef struct MainStatsScale
+{
+    float Strength;
+    float Agility;
+    float Intelligence;
+    float calculate(MainStats stats)
+    { float res = 0.0;
+      res+=Strength * stats.Strength;
+      res+=Agility * stats.Agility;
+      res+=Intelligence * stats.Intelligence;
+      return  res;}
+}MainStatsScale;
+
+/*
  * List of Damage and Armor types in the game
  */
 typedef enum DamageTypes
@@ -42,12 +58,13 @@ typedef enum DamageTypes
 /*
  * In what hand Weapon
  */
-typedef enum WeaponHands
+enum class WeaponHands
 {
     Main,
     Second,
-    Both
-}WeaponHands;
+    Both,
+    None
+};
 
 /*
  * Describe the damage property of weapon
@@ -56,7 +73,7 @@ typedef struct ItemWeaponDamage
 {
     float damage;
     DamageTypes Type;
-    QList<float> ScaleValue;
+    MainStatsScale ScaleValue;
     MainStats ScaleAttribute;
     WeaponHands Hand;
 }ItemWeaponDamage;
@@ -75,8 +92,7 @@ typedef struct PlayerWeaponDamage
  */
 typedef struct ResultDamage
 {
-    QVector<float> damage;
-    QVector<DamageTypes> type;
+    float damage[DamageTypes::DamageTypes_Count];
 }ResultDamage;
 
 /*
@@ -84,9 +100,15 @@ typedef struct ResultDamage
  */
 typedef struct ArmorValue
 {
-    float Armor;
-    DamageTypes ArmorType;
+    float armor[DamageTypes::DamageTypes_Count];
 }ArmorValue;
+
+
+typedef struct criticalParam
+{
+    float value;
+    float chance;
+}criticalParam;
 
 /*
  * List of All Classes in the game
