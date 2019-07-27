@@ -15,4 +15,12 @@
  */
 #define MAX_ITEM_LEVEL 20 // QUESTION: maybe app should read this from config file?..
 
+/*
+ * paths to dirs with json data relative to .exe
+ */
+#define JSON_PATH QString("../../data/json/")
+#define JSON_ITEMS_DIR QString("items/")
+#define JSON_SKILLS_DIR QString("skills/")
+#define JSON_MOBS_DIR QString("mobs/")
+
 #endif //COMMONMACROS_H
