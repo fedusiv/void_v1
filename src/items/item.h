@@ -52,8 +52,8 @@ typedef struct ItemAttribute
     QString id;
     QString Name;
     QString Desc;
-    ItemType Type; //QUESTION: if we make this Q_ENUM we can store it's values with strings in json (see QMetaEnum and keyToValue())
-    QList<LearClassList> Lear;      // store array of classes
+    ItemType Type;
+    QList<Lear> Lears;      // store array of classes
     StatsRequire Requirements;
     int Level;
     float Weight;

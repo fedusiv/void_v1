@@ -4,6 +4,7 @@
 #include <QVector>
 #include <QMap>
 #include "common_types.h"
+#include <lear/class_list.h>
 
 /*
  * Player State object holds information about Player parameters
@@ -20,7 +21,7 @@ private:
     int _Step;              // Current Step
     QVector<float> _Armor;    // Armor parameters of Player
     PlayerWeaponDamage _PlayerWeaponDamage; // damage from weapon
-    QMap<ClassList,int> _LearState;  //set of Classes's which Player stores
+    QMap<Lear,int> _LearState;  //set of Classes's which Player stores
 
     // methods part
     void firstInitilize();
@@ -45,8 +46,8 @@ public:
     void changeArmor(DamageTypes damageType, float value);
     QVector<float> getArmor(){return _Armor;}           // return Armor parameter
 
-    void changeLearParameter(ClassList playerClass, int value);   // change one parametr of Lear state
-    QMap<ClassList, int> getLearState() { return _LearState;}// return Lear State of Player
+    void changeLearParameter(Lear playerClass, int value);   // change one parametr of Lear state
+    QMap<Lear, int> getLearState() { return _LearState;}// return Lear State of Player
 
     void setWeaponDamage(ItemWeaponDamage itemDamage);      // sets playerweapondamage, must be called from inventory.
     PlayerWeaponDamage getPlayerDamage();

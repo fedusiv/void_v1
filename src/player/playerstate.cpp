@@ -52,7 +52,7 @@ void PlayerState::changeArmor(DamageTypes damageType, float value)
     _Armor[damageType] = value;
 }
 
-void PlayerState::changeLearParameter(ClassList playerClass, int value)
+void PlayerState::changeLearParameter(Lear playerClass, int value)
 {
     _LearState.insert(playerClass,value);
 }

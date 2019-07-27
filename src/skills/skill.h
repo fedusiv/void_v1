@@ -53,7 +53,7 @@ typedef struct  SkillAttribute
     SkillTarget Target; // Tell what is the target of Skill
     SkillAttributeType SkillType;   // information about all types of skill
     // REMOVE Values
-    LearClassList Lear;       // Here is information about Lear. In future must be changed from int to Lear Struct
+    Lear lear;       // Here is information about Lear. In future must be changed from int to Lear Struct
     bool Active;
 }SkillAttribute;
 
