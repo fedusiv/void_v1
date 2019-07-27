@@ -1,0 +1,18 @@
+#ifndef COMMONMACROS_H
+#define COMMONMACROS_H
+
+/*
+ * getting size of staticly allocated c-style array
+ * needed when you dont specify actual size of an array,
+ * for eample: int values[] = {1, 2, 3, 4};
+ * so if you resize array later rhis macro allow to automatically recalculate it's size
+ */
+#define SIZE_OF_ARRAY(a) sizeof(a) / sizeof(a[0])
+
+/*
+ * sets max item's level
+ * this must be defined for json parsing purposes
+ */
+#define MAX_ITEM_LEVEL 20 // QUESTION: maybe app should read this from config file?..
+
+#endif //COMMONMACROS_H

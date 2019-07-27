@@ -47,10 +47,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     common_types.h \
+    commonmacros.h \
     db/dbmanager.h \
     fight/fight.h \
     gamemanager.h \
     gui/gamegui.h \
+    items/itemtype.h \
     lear/class_list.h \
     monsters/monster.h \
     player/player.h \

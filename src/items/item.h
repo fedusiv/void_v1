@@ -9,16 +9,7 @@
 
 #include "common_types.h"
 #include "lear/class_list.h"
-/*
- * Types of all equipments
- *
- */
-enum class ItemType{
-    Weapon,
-    Belt,
-    Cloth,
-    Usable
-};
+#include "itemtype.h"
 
 /*
  * Types of only cloth equipment
