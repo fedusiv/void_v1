@@ -2,18 +2,19 @@
 #define SKILLATTACK_H
 
 #include "skill.h"
-
+#include "skillvalues.h"
 class SkillAttackResult
 {
 private:
 
-    QList<float> _criticalValue;
-    QList<float> _criticalChanse;
+    QList<criticalParam> _critical;
 
+    PlayerMagicDamage _defaultMagicDamage;
 
     PlayerWeaponDamage _defaultDamage;
     WeaponHands _defaultHand;
 
+    PlayerMagicDamage   _DamageMagic;
     PlayerWeaponDamage  _Damage;
     WeaponHands         _Hand;
 
@@ -21,6 +22,10 @@ private:
     ResultDamage _ResultDamage;
 
     DamageTypes _damageTypesChanger[DamageTypes::DamageTypes_Count];
+    DamageTypes _armorTypesChanger[DamageTypes::DamageTypes_Count];
+
+    EvasionValue _evasionSelf;
+    EvasionValue _evasionEnemy;
 
     float criticalCalculate();
     void reduceDamageOfArmor();
@@ -47,28 +52,11 @@ class SkillAttack : public Skill
 protected:
     SkillAttackAttribure _AttributeAttack;
     // struct describe, what field must be changed
-    struct values
-    {
-        criticalParam critical;
-
-        float damagePrevConst;
-        float damagePostConst;
-
-        float damagePrevMulti;
-        float damagePostMulti;
-
-        MainStatsScale scaleValueMulti;
-        MainStatsScale scaleValueConst;
-        MainStatsScale statsValueMulti;
-        MainStatsScale statsValueConst;
-        WeaponHands hand;
-        DamageTypes newType;
-        DamageTypes fromType;
-    }values;
+    SkillFightChanger   _AttributeFight;
 
 public:
     SkillAttack(SkillAttackAttribure attribute);
-
+    void TranslateParameters() override;
     void processAttack(SkillAttackResult * attack);
 private:
     void processCritical(SkillAttackResult * attack);

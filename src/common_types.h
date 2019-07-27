@@ -88,6 +88,18 @@ typedef struct PlayerWeaponDamage
 }PlayerWeaponDamage;
 
 /*
+ * Struct stores inforamation about Player's damage from magic
+ */
+typedef struct PlayerMagicDamage
+{
+    float damage;
+    DamageTypes Type;
+    MainStatsScale ScaleValue;
+    MainStats ScaleAttribute;
+}PlayerMagicDamage;
+
+
+/*
  * Result, what affect to target
  */
 typedef struct ResultDamage
@@ -103,11 +115,19 @@ typedef struct ArmorValue
     float armor[DamageTypes::DamageTypes_Count];
 }ArmorValue;
 
+/*
+ * Struct holds information about Evasion chance
+ */
+typedef struct EvasionValue
+{
+    float evasion[DamageTypes::DamageTypes_Count];
+}EvasionValue;
 
 typedef struct criticalParam
 {
     float value;
     float chance;
+    void reduce(criticalParam cr){ value-=cr.value; chance-=cr.chance;}
 }criticalParam;
 
 /*

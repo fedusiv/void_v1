@@ -45,11 +45,13 @@ typedef struct  SkillDurationInformation
  */
 typedef struct  SkillAttribute
 {
+    QString id;     // id of Skill
     QString Name;   // Name of Skill
     QString Desc;   // Description
     SkillDurationInformation Duration;  // information about skill duration
     SkillTarget Target; // Tell what is the target of Skill
-    SkillAttributeType SkillType;   // information about all types of skill
+    SkillType SkillType;   // information about all types of skill
+    SkillClassTypes ClassType;  // inforamtion about skill type
     int Lear;       // Here is information about Lear. In future must be changed from int to Lear Struct
     bool Active;
 }SkillAttribute;
@@ -72,6 +74,42 @@ typedef struct SkillDefenceAttribure
     SkillAttribute BaseAttribute;
 }SkillDefenceAttribure;
 
+/*
+ * Struct describes all changers in Fight parameters
+ */
+typedef struct SkillFightChanger
+{
+    criticalParam critical;
+    criticalParam criticalMagic;
+
+    float damageWeaponConst;
+    float damageWeaponMulti;
+
+    float damageMagicConst;
+    float damageMagicMulti;
+
+    float damagePostConst;
+    float damagePostMulti;
+
+    MainStatsScale scaleValueMulti;
+    MainStatsScale scaleValueConst;
+
+    MainStatsScale statsValueMulti;
+    MainStatsScale statsValueConst;
+
+    WeaponHands hand;
+
+    DamageTypes newAttackType;
+    DamageTypes fromAttackType;
+
+    DamageTypes newArmorType;
+    DamageTypes fromArmorType;
+
+    EvasionValue evasion;
+
+}SkillFightChanger;
+
+
 class Skill
 {
 
@@ -79,6 +117,7 @@ public:
     virtual ~Skill();
     Skill();// Use very carefully
     Skill(SkillAttribute attribute);
+    virtual void TranslateParameters() = 0;     // QUESTION - how to better implement it
     int checkDuration();
 protected:
     SkillAttribute _Attribute;

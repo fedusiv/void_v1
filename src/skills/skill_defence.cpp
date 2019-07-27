@@ -18,6 +18,11 @@ void SkillDefence::processDefence(SkillAttackResult * attack)
     }
 }
 
+void SkillDefence::TranslateParameters()
+{
+
+}
+
 
 void SkillDefence::changeCritical(SkillAttackResult * attack)
 {

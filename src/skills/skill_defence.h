@@ -9,35 +9,13 @@ class SkillDefence : public Skill
 protected:
     SkillDefenceAttribure _AttributeDeffence;
 
-    struct values
-    {
-        criticalParam critical;
-
-        float damagePrevConst;
-        float damagePrevMulti;
-
-        float damagePostConst;
-        float damagePostMulti;
-
-        MainStatsScale scaleValueMulti;
-        MainStatsScale scaleValueConst;
-
-        MainStatsScale statsValueMulti;
-        MainStatsScale statsValueConst;
-
-        WeaponHands handRemove;
-
-        DamageTypes newArmorType;
-        DamageTypes fromArmorType;
-
-        DamageTypes newWeaponType;
-        DamageTypes fromWeaponType;
-    }values;
+    SkillFightChanger   _AttributeFight;
 
     void changeCritical(SkillAttackResult * attack);
 public:
     SkillDefence(SkillDefenceAttribure attribute);
     void processDefence(SkillAttackResult * attack);
+    void TranslateParameters() override;
 };
 
 #endif // SKILL_DEFENCE_H

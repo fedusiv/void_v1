@@ -5,6 +5,11 @@ SkillAttack::SkillAttack(SkillAttackAttribure attribute) : Skill (attribute.Base
     _AttributeAttack = attribute;
 }
 
+void SkillAttack::TranslateParameters()
+{
+
+}
+
 
 void SkillAttack::processAttack(SkillAttackResult * attack)
 {
@@ -35,12 +40,12 @@ void SkillAttack::processAttack(SkillAttackResult * attack)
 
 void SkillAttack::processCritical(SkillAttackResult *attack)
 {
-    attack->addNewCritical(values.critical);
+    attack->addNewCritical(_AttributeFight.critical);
 }
 
 void SkillAttack::ChangeTypeFromTo(SkillAttackResult *attack)
 {
-    attack->changeTypeFromTo(values.fromType, values.newType);
+
 }
 
 void SkillAttack::AddHandHit(SkillAttackResult *attack)
@@ -50,17 +55,17 @@ void SkillAttack::AddHandHit(SkillAttackResult *attack)
 
 void SkillAttack::changeWeaponDamage(SkillAttackResult *attack)
 {
-    attack->changeWeaponDamage(values.damagePrevConst, values.damagePrevMulti);
+
 }
 
 void SkillAttack::changeScaleValue(SkillAttackResult *attack)
 {
-    attack->changeScaleValue(values.scaleValueConst, values.scaleValueMulti);
+
 }
 
 void SkillAttack::changeStatsValue(SkillAttackResult *attack)
 {
-    attack->changeStatsValue(values.statsValueConst, values.statsValueMulti);
+
 }
 
 
@@ -146,20 +151,14 @@ void SkillAttackResult::reduceDamageOfArmor()
 
 void SkillAttackResult::addNewCritical(criticalParam critical)
 {
-    _criticalValue.append(critical.value);
-    _criticalChanse.append(critical.chance);
+    _critical.append(critical);
 }
 
 void SkillAttackResult::reduceAllCritical(criticalParam critical)
 {
-    for ( int i = 0; i < _criticalValue.size(); i ++)
+    for ( int i = 0; i < _critical.size(); i ++)
     {
-        _criticalValue[i]-=critical.value;
-    }
-
-    for ( int i = 0; i < _criticalChanse.size(); i ++)
-    {
-        _criticalChanse[i]-=critical.chance;
+        _critical[i].reduce(critical);
     }
 
 }
