@@ -2,6 +2,9 @@
 #define ITEMSDB_H
 
 #include <QHash>
+#include <QJsonObject>
+
+#include <items/itemtype.h>
 
 class Item;
 
@@ -12,7 +15,7 @@ public:
     Item* getItem(QString id) { return _items[id]; }
 
 private:
-    inline void readItemWithType() { }
+    Item* getItemByType(QJsonObject itemObj, ItemType type);
 
 private:
     QHash<QString, Item*> _items;

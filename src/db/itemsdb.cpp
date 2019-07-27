@@ -7,6 +7,8 @@
 #include <QJsonObject>
 #include <QJsonArray>
 
+#include <items/item.h>
+
 ItemsDataBase::ItemsDataBase()
 {
     for (int type = 0; type < INT(ItemType::ItemTypesCount); type++) //loop for all item types
@@ -20,17 +22,25 @@ ItemsDataBase::ItemsDataBase()
             if(!doc_.isEmpty() && doc_.isArray())
             {
                 QJsonArray items_ = doc_.array();
-                for (QJsonValue item_ : items_) //loop for all items in file
+                for (QJsonValue itemValue_ : items_) //loop for all items in file
                 {
-                    if(item_.isObject())
+                    if(itemValue_.isObject())
                     {
+                        QJsonObject itemObj_ = itemValue_.toObject();
                         ItemAttribute itemAttribute_;
-                        readAttribute(item_.toObject(), itemAttribute_);
+                        readAttribute(itemObj_, itemAttribute_);
 
-
+                        Item* item_ = getItemByType(itemObj_, intToItemType(type));
+                        _items.insert(itemAttribute_.id, item_);
                     }
                 }
             }
         }
     }
+}
+
+Item* ItemsDataBase::getItemByType(QJsonObject itemObj, ItemType type)
+{
+    //TODO: create sertain Item & read specific params according to type
+    return nullptr;
 }
