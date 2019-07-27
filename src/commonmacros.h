@@ -10,6 +10,14 @@
 #define SIZE_OF_ARRAY(a) sizeof(a) / sizeof(a[0])
 
 /*
+ * for cast enum classes to int
+ */
+#define INT(n) static_cast<int>(n)
+
+
+//GAME INFO:
+
+/*
  * sets max item's level
  * this must be defined for json parsing purposes
  */

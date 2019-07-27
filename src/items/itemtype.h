@@ -2,6 +2,7 @@
 #define ITEMTYPE_H
 
 #include <QString>
+
 #include <commonmacros.h>
 
 /*
@@ -12,7 +13,7 @@ enum class ItemType{
     Belt,
     Cloth,
     Usable,
-    Trash //useless item, default type - for debugging purpose
+    ItemTypesCount //useless item, default type - for debugging purpose
 };
 
 /*
@@ -20,19 +21,42 @@ enum class ItemType{
  */
 static const QString itemTypeNames[] =
 {
-    "Weapon",
-    "Belt",
-    "Cloth",
-    "Usable",
-    "Trash"
+    "weapon",
+    "belt",
+    "cloth",
+    "usable"
 };
+
+/*
+ * ItemType -> int
+ */
+inline int itemTypeToInt(ItemType type)
+{
+    return INT(type);
+}
+
+/*
+ * int -> ItemType
+ */
+inline ItemType intToItemType(int type)
+{
+    return static_cast<ItemType>(type);
+}
+
+/*
+ * int -> QString
+ */
+inline  QString itemTypeToStr(int type)
+{
+    return itemTypeNames[type];
+}
 
 /*
  * ItemType -> QString
  */
 inline  QString itemTypeToStr(ItemType type)
 {
-    return itemTypeNames[static_cast<int>(type)];
+    return itemTypeToStr(static_cast<int>(type));
 }
 
 /*
@@ -48,7 +72,7 @@ inline ItemType strToItemType(QString str)
         }
     }
 
-    return ItemType::Trash;
+    return ItemType::ItemTypesCount;
 }
 
 #endif //ITEMTYPE_H
