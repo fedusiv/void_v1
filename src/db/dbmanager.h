@@ -1,31 +1,24 @@
 #ifndef DBMANAGER_H
 #define DBMANAGER_H
 
-#include <skills/skill.h>
-#include <items/item.h>
-
-#include <QJsonObject>
-#include <QHash>
-
+#include <db/itemsdb.h>
 
 class GameFactory
 {
 public:
+    static void init() { _instance = new GameFactory(); }
+    static inline Item* getItem(QString name)
+    {
+        return _instance ? _instance->getItem(name) : nullptr;
+    }
+
+private:
     GameFactory();
 
-    Item* getItem(QString name);
-    Skill* getSkill(QString name);
-
 private:
-    QJsonDocument getJsonFromFile(QString name);
-    void readAttribute(QJsonObject item, ItemAttribute& outAttribute);
+    static GameFactory* _instance;
 
-    void initItems();
-    void initSkills();
-
-private:
-    const QString _filesPath;
-    QHash<QString, Item*> _items;
-    QHash<QString, Skill*> _skills;
+    ItemsDataBase _itemdb;
 };
+
 #endif //DBMANAGER_H

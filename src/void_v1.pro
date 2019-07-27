@@ -14,6 +14,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     db/dbmanager.cpp \
+    db/itemsdb.cpp \
+    db/jsonutil.cpp \
     fight/fight.cpp \
     gamemanager.cpp \
     gui/gamegui.cpp \
@@ -49,6 +51,8 @@ HEADERS += \
     common_types.h \
     commonmacros.h \
     db/dbmanager.h \
+    db/itemsdb.h \
+    db/jsonutil.h \
     fight/fight.h \
     gamemanager.h \
     gui/gamegui.h \
