@@ -54,7 +54,7 @@ typedef struct ItemAttribute
     QString Desc;
     ItemType Type; //QUESTION: if we make this Q_ENUM we can store it's values with strings in json (see QMetaEnum and keyToValue())
     QList<LearClassList> Lear;      // store array of classes
-    MainStatsRequire Requirements;
+    StatsRequire Requirements;
     int Level;
     float Weight;
     // Remove values
@@ -131,7 +131,7 @@ public:
     bool isEquipped();    // return flag of equipped status
     void setEquipped(bool status);  // set equipped or useless equip
     ItemType getItemType();
-    EquipReturnCode checkRequirments( MainStatsRequire player_stats);  // return true if player can equip this element
+    EquipReturnCode checkRequirments( StatsRequire player_stats);  // return true if player can equip this element
 
 
 

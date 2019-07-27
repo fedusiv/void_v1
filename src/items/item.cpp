@@ -46,16 +46,16 @@ ItemType Item::getItemType()
     return _Attribute.Type;
 }
 
-EquipReturnCode Item::checkRequirments(MainStatsRequire player_stats)
+EquipReturnCode Item::checkRequirments(StatsRequire player_stats) //QUESTION: params should be MainStats + level, nope?..
 {
-    if ( player_stats.Level < _Attribute.Level)
-    {
-        return EquipReturnCode::LEVEL_ERROR;
-    }
 
-    if ( player_stats.Strength      < _Attribute.Requirements.Strength)     return EquipReturnCode::STATS_ERROR;
-    if ( player_stats.Agility       < _Attribute.Requirements.Agility)      return EquipReturnCode::STATS_ERROR;
-    if ( player_stats.Intelligence  < _Attribute.Requirements.Intelligence) return EquipReturnCode::STATS_ERROR;
+    for (int stat = 0; stat < RequireStatsCount; stat++)
+    {
+        if(player_stats[stat] < _Attribute.Requirements[stat])
+        {
+            return stat == Level ? EquipReturnCode::LEVEL_ERROR : EquipReturnCode::STATS_ERROR;
+        }
+    }
 
     return EquipReturnCode::SUCCESS;
 }

@@ -4,6 +4,8 @@
 #include <QList>
 #include <QVector>
 
+#include <commonmacros.h>
+
 /*
  * Type stores Main PLayer's Stats type
  * use it like this:
@@ -19,8 +21,13 @@ enum MainStatNames
     MainStatsCount
 };
 
-typedef int MainStats[MainStatsCount];
+struct MainStats
+{
+    int stats[MainStatsCount];
 
+    inline int& operator[](int statId) { return stats[statId]; }
+    constexpr size_t size() { return MainStatsCount; }
+};
 
 /*
  * Type stores Data about requirments for Items or Skills
@@ -33,7 +40,13 @@ enum RequireStatNames
     RequireStatsCount
 };
 
-typedef int StatsRequire[RequireStatsCount];
+struct StatsRequire
+{
+    int stats[RequireStatsCount];
+
+    inline int& operator[](int statId) { return stats[statId]; }
+    constexpr size_t size() { return RequireStatsCount; }
+};
 
 /*
  * List of Damage and Armor types in the game

@@ -37,9 +37,9 @@ SkillAttackResult::SkillAttackResult(PlayerWeaponDamage damage, WeaponHands hand
 ResultDamage SkillAttackResult::calculateDamage()
 {
     float scale_damage = 0;
-    scale_damage += _Damage.MWDamage.ScaleValue.at(0) * _Damage.MWDamage.ScaleAttribute.Strength;
-    scale_damage += _Damage.MWDamage.ScaleValue.at(1) * _Damage.MWDamage.ScaleAttribute.Agility;
-    scale_damage += _Damage.MWDamage.ScaleValue.at(2) * _Damage.MWDamage.ScaleAttribute.Intelligence;
+    scale_damage += _Damage.MWDamage.ScaleValue.at(0) * _Damage.MWDamage.ScaleAttribute[Strength];
+    scale_damage += _Damage.MWDamage.ScaleValue.at(1) * _Damage.MWDamage.ScaleAttribute[Agility];
+    scale_damage += _Damage.MWDamage.ScaleValue.at(2) * _Damage.MWDamage.ScaleAttribute[Intelligence];
 
     float damage = _Damage.MWDamage.damage + scale_damage;
     // calculate critical

@@ -6,9 +6,9 @@ void PlayerState::firstInitilize()
 {
     // TODO : make some keeper to keep default start Player parameters
 
-    _MainStats.Strength = 1;
-    _MainStats.Agility = 1;
-    _MainStats.Intelligence = 1;
+    _MainStats[Strength] = 1;
+    _MainStats[Agility] = 1;
+    _MainStats[Intelligence] = 1;
     _HealthMax = 50;
     _Health = _HealthMax;
     _Level = 1;
@@ -72,9 +72,9 @@ PlayerWeaponDamage PlayerState::getPlayerDamage()
 {
     // BE CARE! Inside inventory and item, main stats shows just whicj main stats are using, 0 and 1
     // Out in skills and player state, they multiply according to Main Stats
-    _PlayerWeaponDamage.MWDamage.ScaleAttribute.Strength *= _MainStats.Strength;
-    _PlayerWeaponDamage.MWDamage.ScaleAttribute.Agility *= _MainStats.Agility;
-    _PlayerWeaponDamage.MWDamage.ScaleAttribute.Intelligence *= _MainStats.Intelligence;
+    _PlayerWeaponDamage.MWDamage.ScaleAttribute[Strength] *= _MainStats[Strength];
+    _PlayerWeaponDamage.MWDamage.ScaleAttribute[Agility] *= _MainStats[Agility];
+    _PlayerWeaponDamage.MWDamage.ScaleAttribute[Intelligence] *= _MainStats[Intelligence];
 
     return _PlayerWeaponDamage;
 }
