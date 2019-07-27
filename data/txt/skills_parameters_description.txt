@@ -1,0 +1,30 @@
+Skill Attack Parameters
+
+
+    criticalParam critical;		critical value for weapon
+    criticalParam criticalMagic;	 critical value for magic
+
+    float damageWeaponConst;		increase started weapon damage
+    float damageWeaponMulti;
+
+    float damageMagicConst;		increase starting magic damage
+    float damageMagicMulti;
+
+    float damagePostConst;		increase all damage after all effects
+    float damagePostMulti;
+
+    MainStatsScale scaleValueMulti;	scaling change
+    MainStatsScale scaleValueConst;
+
+    MainStatsScale statsValueMulti;	stats change
+    MainStatsScale statsValueConst;
+
+    WeaponHands hand;			set what hand use or remove
+
+    DamageTypes newAttackType;		set attack damage type
+    DamageTypes fromAttackType;
+
+    DamageTypes newArmorType;		set Armor type
+    DamageTypes fromArmorType;
+
+    EvasionValue evasion;		evasion

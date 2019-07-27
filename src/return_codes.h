@@ -15,4 +15,10 @@ enum class EquipReturnCode
     STATS_ERROR    // can not equip, points isnt enough
 };
 
+enum class FighterLiveStatus
+{
+    Life,   // Mosnter still alive
+    Death   // Dead
+};
+
 #endif // RETURN_CODES_H

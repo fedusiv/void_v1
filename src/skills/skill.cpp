@@ -3,13 +3,7 @@
 
 Skill::Skill(SkillAttribute attribute)
 {
-    _Name = attribute.Name;
-    _Desc = attribute.Desc;
-    _Duration = attribute.Duration;
-    _SkillType = static_cast<SkillType> (attribute.SkillType.SkillType) ;
-    //_SkillValues = new SkillValues(attribute.Values, attribute.SkillType.ClassType, attribute.Lear);
-    _ClassType = static_cast<SkillClassTypes>(attribute.SkillType.ClassType);
-    _Active = attribute.Active;
+    _Attribute = attribute;
 }
 
 Skill::~Skill()
@@ -17,3 +11,16 @@ Skill::~Skill()
 
 }
 
+int Skill::checkDuration()
+{
+    if ( _Attribute.Duration.Forever)
+        return 1;
+    if ( _Attribute.Duration.Fight)
+        return 1;
+    if ( _Attribute.Duration.TillNextFight)
+        return 1;
+    if ( _Attribute.Duration.value - 1)
+        return 1;
+
+    return 0;
+}

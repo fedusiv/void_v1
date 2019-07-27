@@ -1,17 +1,35 @@
 #ifndef SKILLS_DESCRIPTION_H
 #define SKILLS_DESCRIPTION_H
 
-typedef enum SkillAttackAmp
+/*
+ * Types of attack skills
+ */
+enum class SkillAttackAmp
 {
     Critical,
     ChangeTypeFromTo,
     AddHandHit,
-    ChangeFullDamage,
     ChangeWeaponDamage,
-    ChangePostDamage,
     ChangeScaleValue,
     ChangeStats,
+
     SkillAttackAmpCount
-}SkillAttackAmp;
+};
+
+/*
+ * Types of Defence skills
+ */
+enum class SkillDefenceAmp
+{
+    Critical,
+    ChangeArmorTypeFromTo,
+    ChangeArmorValue,
+    RemoveHandHit,
+    ChangeWeaponDamage,
+    ChangeScaleValue,
+    ChangeStats,
+
+    SkillDefenceAmpCount
+};
 
 #endif // SKILLS_DESCRIPTION_H

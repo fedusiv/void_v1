@@ -24,14 +24,6 @@ typedef enum SkillTarget
     Enemy
 }SkillTarget;
 
-// stores information about Skill Type. And Type inside Class
-typedef struct SkillAttributeType
-{
-    uint8_t SkillType:3;
-    uint8_t ClassType:5;
-
-}SkillAttributeType;
-
 // all information about skills duration
 typedef struct  SkillDurationInformation
 {
@@ -47,14 +39,15 @@ typedef struct  SkillDurationInformation
  */
 typedef struct  SkillAttribute
 {
-    QString Name;   // Name of Skill
-    QString Desc;   // Description
-    SkillDurationInformation Duration;  // information about skill duration
-    SkillTarget Target; // Tell what is the target of Skill
-    SkillAttributeType SkillType;   // information about all types of skill
-    // REMOVE Values
-    Lear lear;       // Here is information about Lear. In future must be changed from int to Lear Struct
-    bool Active;
+    QString id;     // id of Skill
+    QString name;   // Name of Skill
+    QString desc;   // Description
+    SkillDurationInformation duration;  // information about skill duration
+    SkillTarget target; // Tell what is the target of Skill
+    SkillType skillType;   // information about all types of skill
+    Lear learName;
+    SkillClassTypes classType;  // inforamtion about skill type
+    bool active;
 }SkillAttribute;
 
 /*
@@ -62,10 +55,56 @@ typedef struct  SkillAttribute
  */
 typedef struct SkillAttackAttribure
 {
-    QVector<float> Values;
-    SkillAttackAmp Type;
-    SkillAttribute BaseAttribute;
+    QVariantMap values;
+    SkillAttackAmp type;
+    SkillAttribute baseAttribute;
 }SkillAttackAttribure;
+
+/*
+ * struct holds info only accurate about skills attack type
+ */
+typedef struct SkillDefenceAttribure
+{
+    QVariantMap values;
+    SkillDefenceAmp type;
+    SkillAttribute baseAttribute;
+}SkillDefenceAttribure;
+
+/*
+ * Struct describes all changers in Fight parameters
+ */
+typedef struct SkillFightChanger
+{
+    criticalParam critical;
+    criticalParam criticalMagic;
+
+    float damageWeaponConst;
+    float damageWeaponMulti;
+
+    float damageMagicConst;
+    float damageMagicMulti;
+
+    float damagePostConst;
+    float damagePostMulti;
+
+    MainStatsScale scaleValueMulti;
+    MainStatsScale scaleValueConst;
+
+    MainStatsScale statsValueMulti;
+    MainStatsScale statsValueConst;
+
+    WeaponHands hand;
+
+    DamageTypes newAttackType;
+    DamageTypes fromAttackType;
+
+    DamageTypes newArmorType;
+    DamageTypes fromArmorType;
+
+    EvasionValue evasion;
+
+}SkillFightChanger;
+
 
 class Skill
 {
@@ -80,18 +119,10 @@ public:
     }
 
     Skill(SkillAttribute attribute);
-    // method for Change Damage
-    // method for Change Defence
-
+    virtual void TranslateParameters() = 0;
+    int checkDuration();
 protected:
-    QString _Name;
-    QString _Desc;
-    SkillDurationInformation _Duration;
-    SkillTarget _Target;
-    SkillType _SkillType;
-    //SkillValues * _SkillValues;
-    SkillClassTypes _ClassType;
-    bool _Active;
+    SkillAttribute _Attribute;
 
 };
 #endif //SKILL_H

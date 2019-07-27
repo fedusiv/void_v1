@@ -21,7 +21,7 @@
  * sets max item's level
  * this must be defined for json parsing purposes
  */
-#define MAX_ITEM_LEVEL 20 // QUESTION: maybe app should read this from config file?..
+#define MAX_ITEM_LEVEL 20 // TODO: maybe app should read this from config file?..
 
 /*
  * paths to dirs with json data relative to .exe

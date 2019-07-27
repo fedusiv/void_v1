@@ -50,17 +50,17 @@ typedef struct ItemChargeAbility
 typedef struct ItemAttribute
 {
     QString id;
-    QString Name;
-    QString Desc;
-    ItemType Type;
-    QList<Lear> Lears;      // store array of classes
-    StatsRequire Requirements;
-    int Level;
-    float Weight;
+    QString name;
+    QString desc;
+    ItemType type;
+    QList<Lear> lears;      // store array of classes
+    StatsRequire requirements;
+    int level;
+    float weight;
     // Remove values
-    ItemChargeAbility Chargability;
+    ItemChargeAbility chargability;
     QString image;
-    QString NextLevelItem;
+    QString nextLevelItem;
 }ItemAttribute;
 
 /*
@@ -120,7 +120,7 @@ typedef struct ItemClothArmor
 class Item
 {
 public:
-    Item(ItemAttribute attribute); //QUESTION: maybe don't copy that? ptr or std::move, donno
+    Item(ItemAttribute attribute);
     virtual ~Item(){}
 
     int getLevel(); // returns equipment level

@@ -3,8 +3,6 @@
 #include <QJsonObject>
 #include <QJsonArray>
 
-#include <minmax.h>
-
 QJsonDocument getJsonFromFile(QString path)
 {
     QJsonDocument doc_;
@@ -33,7 +31,7 @@ void readAttribute(QJsonObject sourceObj, ItemAttribute &outAttribute)
     // parsing arrays:
 
     QJsonArray reqstats_ = sourceObj["reqstats"].toArray();
-    for (int stat = 0; stat < min(RequireStatsCount, reqstats_.size()); stat++)
+    for (int stat = 0; stat < std::min(INT(RequireStatsCount), reqstats_.size()); stat++)
     {
       outAttribute.Requirements[stat] = reqstats_[stat].toInt();
     }

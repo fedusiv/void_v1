@@ -4,7 +4,9 @@
 #include <QVector>
 #include <QMap>
 #include "common_types.h"
+
 #include <lear/class_list.h>
+#include "return_codes.h"
 
 /*
  * Player State object holds information about Player parameters
@@ -31,6 +33,8 @@ public:
 
     void setHealth(float health);               // setter of Health
     void setHealthMax(float health);            // setter of Health Max
+    FighterLiveStatus reduceHealth(float damage);           // reduce Health in Fight
+
     float getHealth() { return _Health;}        // get Health
     float getHealthMax() {return _HealthMax;}   // get max Health
 
@@ -50,7 +54,7 @@ public:
     QMap<Lear, int> getLearState() { return _LearState;}// return Lear State of Player
 
     void setWeaponDamage(ItemWeaponDamage itemDamage);      // sets playerweapondamage, must be called from inventory.
-    PlayerWeaponDamage getPlayerDamage();
+    PlayerWeaponDamage getPlayerWeaponDamage();
 
 };
 

@@ -49,6 +49,22 @@ struct StatsRequire
 };
 
 /*
+ * Struct stores scales values
+ */
+ struct MainStatsScale
+{
+    float Strength;
+    float Agility;
+    float Intelligence;
+    float calculate(MainStats stats)
+    { float res = 0.0;
+      res+=Strength * stats[MainStatNames::Strength];
+      res+=Agility * stats[MainStatNames::Agility];
+      res+=Intelligence * stats[MainStatNames::Intelligence];
+      return  res;}
+};
+
+/*
  * List of Damage and Armor types in the game
  */
 typedef enum DamageTypes
@@ -64,12 +80,13 @@ typedef enum DamageTypes
 /*
  * In what hand Weapon
  */
-typedef enum WeaponHands
+enum class WeaponHands
 {
     Main,
     Second,
-    Both
-}WeaponHands;
+    Both,
+    None
+};
 
 /*
  * Describe the damage property of weapon
@@ -78,7 +95,7 @@ typedef struct ItemWeaponDamage
 {
     float damage;
     DamageTypes Type;
-    QList<float> ScaleValue;
+    MainStatsScale ScaleValue;
     MainStats ScaleAttribute;
     WeaponHands Hand;
 }ItemWeaponDamage;
@@ -93,12 +110,23 @@ typedef struct PlayerWeaponDamage
 }PlayerWeaponDamage;
 
 /*
+ * Struct stores inforamation about Player's damage from magic
+ */
+typedef struct PlayerMagicDamage
+{
+    float damage;
+    DamageTypes Type;
+    MainStatsScale ScaleValue;
+    MainStats ScaleAttribute;
+}PlayerMagicDamage;
+
+
+/*
  * Result, what affect to target
  */
 typedef struct ResultDamage
 {
-    QVector<float> damage;
-    QVector<DamageTypes> type;
+    float damage[DamageTypes::DamageTypes_Count];
 }ResultDamage;
 
 /*
@@ -106,9 +134,23 @@ typedef struct ResultDamage
  */
 typedef struct ArmorValue
 {
-    float Armor;
-    DamageTypes ArmorType;
+    float armor[DamageTypes::DamageTypes_Count];
 }ArmorValue;
 
+
+/*
+ * Struct holds information about Evasion chance
+ */
+typedef struct EvasionValue
+{
+    float evasion[DamageTypes::DamageTypes_Count];
+}EvasionValue;
+
+typedef struct criticalParam
+{
+    float value;
+    float chance;
+    void reduce(criticalParam cr){ value-=cr.value; chance-=cr.chance;}
+}criticalParam;
 
 #endif // COMMON_TYPES_H

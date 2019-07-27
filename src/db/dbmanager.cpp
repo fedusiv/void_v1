@@ -4,6 +4,3 @@ GameFactory::GameFactory()
 {
 }
 
-void GameFactory::initItems()
-{
-}

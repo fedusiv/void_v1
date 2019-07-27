@@ -4,14 +4,16 @@
 #include "playerstate.h"
 #include "skills/skilllist.h"
 #include "skills/skillsqueue.h"
+#include "skills/skillattack.h"
 #include "common_types.h"
+#include "return_codes.h"
 /*
  * Class Player. It is all data about current player
  */
 
-class Player
+class Player : public QObject
 {
-
+      Q_OBJECT
 private:
     PlayerState * _PlayerState;     // pointer to object of Player's State
     // PlayerInventory
@@ -20,7 +22,10 @@ private:
 
 public:
     Player();
-    ResultDamage MakeWeaponHit(WeaponHands hand); // decision of Player from GUI to make just hit by weapon
+    void MakeWeaponHit(WeaponHands hand); // decision of Player from GUI to make just hit by weapon
+    FighterLiveStatus defenceFromMonster(SkillAttackResult * attack);   // defence from Mosnter
+signals:
+    void playerMakeWeaponHit(SkillAttackResult * attack);
 };
 
 #endif // PLAYER_H

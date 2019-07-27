@@ -42,6 +42,16 @@ void PlayerState::setHealthMax(float health)
     _HealthMax = health;
 }
 
+FighterLiveStatus PlayerState::reduceHealth(float damage)
+{
+    _Health -= damage;
+    if ( _Health <= 0)
+    {
+        return FighterLiveStatus::Death;
+    }
+    return  FighterLiveStatus::Life;
+}
+
 /*
  * @desc : change one of the Armor parameters
  * @param: damage Type
@@ -68,7 +78,7 @@ void PlayerState::setWeaponDamage(ItemWeaponDamage itemDamage)
     }
 }
 
-PlayerWeaponDamage PlayerState::getPlayerDamage()
+PlayerWeaponDamage PlayerState::getPlayerWeaponDamage()
 {
     // BE CARE! Inside inventory and item, main stats shows just whicj main stats are using, 0 and 1
     // Out in skills and player state, they multiply according to Main Stats

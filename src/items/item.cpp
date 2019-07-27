@@ -43,15 +43,15 @@ void Item::setEquipped(bool status)
 
 ItemType Item::getItemType()
 {
-    return _Attribute.Type;
+    return _Attribute.type;
 }
 
-EquipReturnCode Item::checkRequirments(StatsRequire player_stats) //QUESTION: params should be MainStats + level, nope?..
+EquipReturnCode Item::checkRequirments(StatsRequire player_stats)
 {
 
     for (int stat = 0; stat < RequireStatsCount; stat++)
     {
-        if(player_stats[stat] < _Attribute.Requirements[stat])
+        if(player_stats[stat] < _Attribute.requirements[stat])
         {
             return stat == Level ? EquipReturnCode::LEVEL_ERROR : EquipReturnCode::STATS_ERROR;
         }
