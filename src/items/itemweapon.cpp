@@ -15,7 +15,7 @@ ItemWeaponDamage ItemWeapon::getDamage()
     ItemWeaponDamage damage;
     damage.damage = _AttributeWeapon.damage;
     damage.Type = _AttributeWeapon.type;
-    damage.ScaleValue = _AttributeWeapon.scaleValue;
+    //damage.ScaleValue = _AttributeWeapon.scaleValue; //BUG: left & right parts are different types
     damage.ScaleAttribute = _AttributeWeapon.scaleAttribute;
     return damage;
 }
