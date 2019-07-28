@@ -20,20 +20,20 @@ void readAttribute(QJsonObject sourceObj, ItemAttribute &outAttribute)
     // parsing basic values:
 
     outAttribute.id = sourceObj["id"].toString();
-    outAttribute.Name = sourceObj["name"].toString();
-    outAttribute.Desc = sourceObj["desc"].toString();
+    outAttribute.name = sourceObj["name"].toString();
+    outAttribute.desc = sourceObj["desc"].toString();
     // outAttribute.Type must be defined by input file
-    outAttribute.Level = sourceObj["level"].toInt();
-    outAttribute.Weight = sourceObj["weight"].toDouble();
+    outAttribute.level = sourceObj["level"].toInt();
+    outAttribute.weight = sourceObj["weight"].toDouble();
     outAttribute.image = sourceObj["img"].toString();
-    outAttribute.NextLevelItem = sourceObj["nextlevel"].toString();
+    outAttribute.nextLevelItem = sourceObj["nextlevel"].toString();
 
     // parsing arrays:
 
     QJsonArray reqstats_ = sourceObj["reqstats"].toArray();
     for (int stat = 0; stat < std::min(INT(RequireStatsCount), reqstats_.size()); stat++)
     {
-      outAttribute.Requirements[stat] = reqstats_[stat].toInt();
+      outAttribute.requirements[stat] = reqstats_[stat].toInt();
     }
 
     QJsonArray lears_ = sourceObj["lears"].toArray();
@@ -43,7 +43,7 @@ void readAttribute(QJsonObject sourceObj, ItemAttribute &outAttribute)
         lear_ = strToLear(jsonLear_.toString());
         if(lear_ < LearCount)
         {
-            outAttribute.Lears.append(lear_);
+            outAttribute.lears.append(lear_);
         }
     }
 }

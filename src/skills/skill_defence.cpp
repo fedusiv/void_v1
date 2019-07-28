@@ -8,7 +8,7 @@ SkillDefence::SkillDefence(SkillDefenceAttribure attribute)
 
 void SkillDefence::processDefence(SkillAttackResult * attack)
 {
-    switch (_AttributeDeffence.Type)
+    switch (_AttributeDeffence.type)
     {
     case SkillDefenceAmp::Critical:
         changeCritical(attack);

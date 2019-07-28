@@ -119,7 +119,7 @@ public:
     }
 
     Skill(SkillAttribute attribute);
-    virtual void TranslateParameters() = 0;
+    virtual void TranslateParameters() {}
     int checkDuration();
 protected:
     SkillAttribute _Attribute;

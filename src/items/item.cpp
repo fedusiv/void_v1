@@ -8,27 +8,27 @@ Item::Item(ItemAttribute attribute)
 
 int Item::getLevel()
 {
-    return _Attribute.Level;
+    return _Attribute.level;
 }
 
 float Item::getWeight()
 {
-    return _Attribute.Weight;
+    return _Attribute.weight;
 }
 
 QString Item::getName()
 {
-    return _Attribute.Name;
+    return _Attribute.name;
 }
 
 void Item::setName(QString name)
 {
-    _Attribute.Name = name;
+    _Attribute.name = name;
 }
 
 QString Item::getDesc()
 {
-    return _Attribute.Desc;
+    return _Attribute.desc;
 }
 
 bool Item::isEquipped()

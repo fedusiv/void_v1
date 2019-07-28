@@ -1,6 +1,6 @@
 #include "skillattack.h"
 
-SkillAttack::SkillAttack(SkillAttackAttribure attribute) : Skill (attribute.BaseAttribute )
+SkillAttack::SkillAttack(SkillAttackAttribure attribute) : Skill (attribute.baseAttribute )
 {
     _AttributeAttack = attribute;
 }
@@ -13,7 +13,7 @@ void SkillAttack::TranslateParameters()
 
 void SkillAttack::processAttack(SkillAttackResult * attack)
 {
-    switch (_AttributeAttack.Type)
+    switch (_AttributeAttack.type)
     {
     case SkillAttackAmp::Critical:
         processCritical(attack);

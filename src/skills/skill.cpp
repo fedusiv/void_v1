@@ -13,13 +13,13 @@ Skill::~Skill()
 
 int Skill::checkDuration()
 {
-    if ( _Attribute.Duration.Forever)
+    if ( _Attribute.duration.Forever)
         return 1;
-    if ( _Attribute.Duration.Fight)
+    if ( _Attribute.duration.Fight)
         return 1;
-    if ( _Attribute.Duration.TillNextFight)
+    if ( _Attribute.duration.TillNextFight)
         return 1;
-    if ( _Attribute.Duration.value - 1)
+    if ( _Attribute.duration.value - 1)
         return 1;
 
     return 0;
