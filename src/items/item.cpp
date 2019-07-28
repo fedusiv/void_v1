@@ -76,11 +76,11 @@ ItemWeaponDamage Item::getDamage()
  * @desc : return just empty values of armor
  * @return ItemClothArmor empty variable
  */
-ItemClothArmor Item::getArmor()
+itemClothArmor Item::getArmor()
 {
-    ItemClothArmor armor;
+    itemClothArmor armor;
     armor.armor = 0;
-    armor.Type = DamageTypes::DamageTypes_Count;
+    armor.type = DamageTypes::DamageTypes_Count;
     return armor;
 }
 

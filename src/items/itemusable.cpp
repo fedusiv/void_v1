@@ -1,6 +1,6 @@
 #include "itemusable.h"
 
-ItemUsable::ItemUsable(ItemUsableAttribute property) : Item(property.ItemBaseParameters)
+ItemUsable::ItemUsable(ItemUsableAttribute property) : Item(property.itemBaseParameters)
 {
     _AttributeUsable = property;
 }
@@ -12,5 +12,5 @@ int ItemUsable::getDuration()
 
 ItemUsableType ItemUsable::getUsableType()
 {
-    return  _AttributeUsable.Type;
+    return  _AttributeUsable.type;
 }

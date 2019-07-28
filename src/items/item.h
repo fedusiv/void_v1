@@ -37,17 +37,17 @@ enum ItemUsableType
 /*
  *  structure keep information about charge ability of Item
  */
-typedef struct ItemChargeAbility
+struct ItemChargeAbility
 {
-    bool ReChargable;
-    int Charges;
-}ItemChargeAbility;
+    bool reChargable;
+    int charges;
+};
 
 
 /*
  * Main foundation of all Item properties
  */
-typedef struct ItemAttribute
+struct ItemAttribute
 {
     QString id;
     QString name;
@@ -61,60 +61,60 @@ typedef struct ItemAttribute
     ItemChargeAbility chargability;
     QString image;
     QString nextLevelItem;
-}ItemAttribute;
+};
 
 /*
  * Additional  properties for Weapon
  */
-typedef struct ItemWeaponAttribute
+struct ItemWeaponAttribute
 {
-    WeaponHands Hands;
-    float Damage;
-    DamageTypes Type;
-    QList<float> ScaleValue;
-    MainStats ScaleAttribute;
-    ItemAttribute ItemBaseParameters;
-}ItemWeaponAttribute;
+    WeaponHands hands;
+    float damage;
+    DamageTypes type;
+    QList<float> scaleValue;
+    MainStats scaleAttribute;
+    ItemAttribute itemBaseParameters;
+};
 
 /*
  * Additional  properties for Usable Items
  */
-typedef struct ItemUsableAttribute
+struct ItemUsableAttribute
 {
-    ItemUsableType Type;
+    ItemUsableType type;
     int duration;
-    ItemAttribute ItemBaseParameters;
-}ItemUsableAttribute;
+    ItemAttribute itemBaseParameters;
+};
 
 /*
  * Additional  properties for Cloth
  */
-typedef struct ItemClothAttribute
+struct ItemClothAttribute
 {
-    float Armor;
-    DamageTypes ArmorType;
-    ItemClothType ClothType;
-    ItemAttribute ItemBaseParameters;
-}ItemClothAttribute;
+    float armor;
+    DamageTypes armorType;
+    ItemClothType clothType;
+    ItemAttribute itemBaseParameters;
+};
 
 /*
  * Additional  properties for Usable Items
  */
-typedef struct ItemBeltAttribute
+struct ItemBeltAttribute
 {
     int size;
-    ItemAttribute ItemBaseParameters;
-}ItemBeltAttribute;
+    ItemAttribute itemBaseParameters;
+};
 
 
 /*
  * Describe the armor property of cloth
  */
-typedef struct ItemClothArmor
+struct itemClothArmor
 {
     float armor;
-    DamageTypes Type;
-}ItemClothArmor;
+    DamageTypes type;
+};
 
 
 class Item
@@ -139,7 +139,7 @@ public:
     virtual int getHands() { return 0;} // virtual method for weapon returns count of required hands
     virtual ItemClothType getClothType() { return ItemClothType::ClothCount;} // virtual method for get type of cloth equipment
     virtual ItemWeaponDamage getDamage();                  // virtual method for weapon children, it return damage parametr
-    virtual ItemClothArmor getArmor();                    // virtual method for cloth children, returns armor of cloth
+    virtual itemClothArmor getArmor();                    // virtual method for cloth children, returns armor of cloth
 
 protected:
     ItemAttribute _Attribute;           // all base parameters of Item

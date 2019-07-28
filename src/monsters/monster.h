@@ -8,22 +8,22 @@
 #include "skills/skillsqueue.h"
 #include "return_codes.h"
 
-typedef struct MonsterAttribute
+struct MonsterAttribute
 {
-    QString Name;                   // name of monster
-    QString Desc;                   // Lore description
-    QString Picture;                // image of monster
-    PlayerWeaponDamage DamageStruct;// description of standart damage
+    QString name;                   // name of monster
+    QString desc;                   // Lore description
+    QString picture;                // image of monster
+    PlayerWeaponDamage damageStruct;// description of standart damage
     WeaponHands Hand;
-    SkillList SkillsList;
+    SkillList skillsList;
     // Combinations
-    int Level;
-    float Health;
-    ArmorValue Armor;
+    int level;
+    float health;
+    ArmorValue armor;
     //Rules for using weapon skills and combinations
-    // loot
-    // Expirience
-}MonsterAttribute;
+    QMap<float,QString> loot;   // loot
+    float experience;
+};
 
 
 class Monster
