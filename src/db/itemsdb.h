@@ -8,17 +8,19 @@
 
 class Item;
 
+typedef QHash<QString, Item*> ItemsHash;
+
 class ItemsDataBase
 {
 public:
     ItemsDataBase();
-    Item* getItem(QString id) { return _items[id]; }
+    Item* getItem(QString id) { return nullptr; }
 
 private:
     Item* getItemByType(QJsonObject itemObj, ItemType type);
 
 private:
-    QHash<QString, Item*> _items;
+    ItemsHash _items [getItemTypesCount()]; //array of hashs, each one for certain item type
 };
 
 #endif //ITEMSDB_H

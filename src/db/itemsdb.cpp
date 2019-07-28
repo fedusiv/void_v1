@@ -31,7 +31,7 @@ ItemsDataBase::ItemsDataBase()
                         readAttribute(itemObj_, itemAttribute_);
 
                         Item* item_ = getItemByType(itemObj_, intToItemType(type));
-                        _items.insert(itemAttribute_.id, item_);
+                        _items[type].insert(itemAttribute_.id, item_);
                     }
                 }
             }

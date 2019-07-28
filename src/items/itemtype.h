@@ -28,6 +28,11 @@ static const QString itemTypeNames[] =
 };
 
 /*
+ * get number of item types
+ */
+constexpr unsigned int getItemTypesCount() { return INT(ItemType::ItemTypesCount); }
+
+/*
  * ItemType -> int
  */
 inline int itemTypeToInt(ItemType type)
