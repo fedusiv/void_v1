@@ -88,3 +88,13 @@ PlayerWeaponDamage PlayerState::getPlayerWeaponDamage()
 
     return _PlayerWeaponDamage;
 }
+
+StatsRequire PlayerState::getStatsForRequire()
+{
+    StatsRequire require;
+    require.stats[MainStatNames::Strength] = _MainStats.stats[MainStatNames::Strength];
+    require.stats[MainStatNames::Agility] = _MainStats.stats[MainStatNames::Agility];
+    require.stats[MainStatNames::Intelligence] = _MainStats.stats[MainStatNames::Intelligence];
+    require.stats[Level] = _Level;
+    return  require;
+}

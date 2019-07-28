@@ -5,6 +5,7 @@ Player::Player()
     _PlayerState = new PlayerState();
     _PlayerSkillsList = new SkillList();
     _PlayerSkillQueue = new SkillsQueue();
+    _Inventory = new Inventory();
 }
 
 void Player::MakeWeaponHit(WeaponHands hand)
@@ -16,4 +17,18 @@ void Player::MakeWeaponHit(WeaponHands hand)
 FighterLiveStatus Player::defenceFromMonster(SkillAttackResult *attack)
 {
     return  _PlayerState->reduceHealth( _PlayerSkillQueue->DefenceFromWeaponHit(attack));
+}
+
+EquipReturnCode Player::equipWeapon(ItemWeapon *weapon)
+{
+    EquipReturnCode res = weapon->checkRequirments(_PlayerState->getStatsForRequire());
+
+    if ( res == EquipReturnCode::SUCCESS)
+    {
+        return _Inventory->equipMainWeapon(weapon);
+    }
+    else
+    {
+        return  res;
+    }
 }
