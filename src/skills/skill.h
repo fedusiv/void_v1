@@ -25,13 +25,13 @@ typedef enum SkillTarget
 }SkillTarget;
 
 // all information about skills duration
-typedef struct  SkillDurationInformation
+struct  SkillDurationInformation
 {
     bool Forever;
     bool Fight;
     bool TillNextFight;
     int value;
-}SkillDurationInformation;
+};
 
 /*
  * struct, which stores data of skill. More convient for Skill constructor

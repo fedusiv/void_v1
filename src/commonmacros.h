@@ -31,4 +31,5 @@
 #define JSON_SKILLS_DIR QString("skills/")
 #define JSON_MOBS_DIR QString("mobs/")
 
+
 #endif //COMMONMACROS_H

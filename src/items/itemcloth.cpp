@@ -1,19 +1,19 @@
 #include "itemcloth.h"
 
-ItemCloth::ItemCloth(ItemClothAttribute attribute) : Item (attribute.ItemBaseParameters)
+ItemCloth::ItemCloth(ItemClothAttribute attribute) : Item (attribute.itemBaseParameters)
 {
     _AttributeCloth = attribute;
 }
 
 ItemClothType ItemCloth::getClothType()
 {
-    return _AttributeCloth.ClothType;
+    return _AttributeCloth.clothType;
 }
 
-ItemClothArmor ItemCloth::getArmor()
+itemClothArmor ItemCloth::getArmor()
 {
-    ItemClothArmor armor;
-    armor.armor = _AttributeCloth.Armor;
-    armor.Type = _AttributeCloth.ArmorType;
+    itemClothArmor armor;
+    armor.armor = _AttributeCloth.armor;
+    armor.type = _AttributeCloth.armorType;
     return armor;
 }

@@ -10,7 +10,7 @@ protected:
 public:
     ItemCloth(ItemClothAttribute attribute);
     ItemClothType getClothType() override;
-    ItemClothArmor getArmor() override;
+    itemClothArmor getArmor() override;
 };
 
 #endif // ITEMCLOTH_H
