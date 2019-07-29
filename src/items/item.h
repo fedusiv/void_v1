@@ -75,7 +75,7 @@ struct ItemWeaponAttribute
     DamageTypes type;
     QList<float> scaleValue;
     MainStats scaleAttribute;
-    ItemAttribute itemBaseParameters;
+    ItemAttribute itemBaseParameters; //BUG: base class Item already has ItemAttribute instance
 };
 
 /*
