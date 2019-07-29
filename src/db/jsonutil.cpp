@@ -46,4 +46,11 @@ void readAttribute(QJsonObject sourceObj, ItemAttribute &outAttribute)
             outAttribute.lears.append(lear_);
         }
     }
+
+    //parsing other_values:
+    QJsonObject otherValues_ = sourceObj["other_values"].toObject();
+    if(!otherValues_.isEmpty())
+    {
+        outAttribute.otherValues = otherValues_.toVariantMap();
+    }
 }

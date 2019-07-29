@@ -61,6 +61,8 @@ struct ItemAttribute
     ItemChargeAbility chargability;
     QString image;
     QString nextLevelItem;
+
+    QVariantMap otherValues; //store custom values
 };
 
 /*
