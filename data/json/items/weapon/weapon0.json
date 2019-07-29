@@ -1,13 +1,32 @@
 [
 	{
+		"_COMMENT1_": "THIS IS COMMON ATTRIBUTES: ",
+		
 		"id": "unique_item_id",
 		"name": "Test item - this name is for view only",
 		"desc": "some stick with poo on it - use wisely!",
 		"lears": ["Mage", "grey", "Rogue", "This_Is_Invalid_Lear"],
-		"reqstats": [10,9,8,7],
+		"req_stats": [10,9,8,7],
 		"level": 6,
 		"weight": 5.669,
 		"img": "poostick.png",
-		"nextlevel": "big_poo_stick_id"
+		"next_level": "big_poo_stick_id",
+		
+		"_COMMENT2_": "THIS IS WEAPON ATTRIBUTES: ",
+		
+		"hands": "main",
+		"damage": 36.6,
+		"damage_type": "blood",
+		"scale": [3.3, 5.5, 7.7],
+		
+		"_COMMENT3_": "THIS IS CUSTOM ATTRIBUTES: ",
+		
+		"other_values": 
+		{
+			"put": "what",
+			"ever": "you",
+			"want": "to",
+			"numbers_too": 845.9
+		}
 	}
 ]
