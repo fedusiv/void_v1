@@ -14,7 +14,7 @@ class ItemsDataBase
 {
 public:
     ItemsDataBase();
-    Item* getItem(QString id) { return nullptr; }
+    Item* getItem(QString id) const;
 
 private:
     Item* getItemByType(QJsonObject itemObj, ItemType type);

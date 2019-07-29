@@ -39,6 +39,21 @@ ItemsDataBase::ItemsDataBase()
     }
 }
 
+Item* ItemsDataBase::getItem(QString id) const
+{
+    Item* item = nullptr;
+    for (const ItemsHash& hash : _items)
+    {
+        if(hash.contains(id))
+        {
+            item = hash[id];
+            break;
+        }
+    }
+
+    return item;
+}
+
 Item* ItemsDataBase::getItemByType(QJsonObject itemObj, ItemType type)
 {
     //TODO: create sertain Item & read specific params according to type
