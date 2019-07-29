@@ -19,6 +19,8 @@ public:
 private:
     Item* getItemByType(QJsonObject itemObj, ItemType type);
 
+    Item* getWeaponFromJson(QJsonObject sourceObj);
+
 private:
     ItemsHash _items [getItemTypesCount()]; //array of hashs, each one for certain item type
 };

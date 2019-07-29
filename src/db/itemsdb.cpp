@@ -8,6 +8,7 @@
 #include <QJsonArray>
 
 #include <items/item.h>
+#include <items/itemweapon.h>
 
 ItemsDataBase::ItemsDataBase()
 {
@@ -27,11 +28,8 @@ ItemsDataBase::ItemsDataBase()
                     if(itemValue_.isObject())
                     {
                         QJsonObject itemObj_ = itemValue_.toObject();
-                        ItemAttribute itemAttribute_;
-                        readAttribute(itemObj_, itemAttribute_);
-
                         Item* item_ = getItemByType(itemObj_, intToItemType(type));
-                        _items[type].insert(itemAttribute_.id, item_);
+                        if(item_) _items[type].insert(item_->getName(), item_);
                     }
                 }
             }
@@ -56,6 +54,33 @@ Item* ItemsDataBase::getItem(QString id) const
 
 Item* ItemsDataBase::getItemByType(QJsonObject itemObj, ItemType type)
 {
-    //TODO: create sertain Item & read specific params according to type
-    return nullptr;
+    switch (type)
+    {
+        case ItemType::Weapon :
+        {
+            return getWeaponFromJson(itemObj);
+        }
+        break;
+
+        //TODO: replicate for all other types
+
+        default:
+            return nullptr;
+    }
+}
+
+Item* ItemsDataBase::getWeaponFromJson(QJsonObject sourceObj)
+{
+    ItemWeaponAttribute weaponAtt_;
+    weaponAtt_.hands = WeaponHands::Both; // = strToHands(sourceObj["hands"].toString());
+    weaponAtt_.damage = sourceObj["damage"].isDouble();
+    weaponAtt_.type = DamageTypes::Blood; // = strToDmgType(sourceObj["damage_type"].toString());
+    for (int stat = 0; stat < 3; stat++)
+    {
+        //TODO: check wich type scaleAttribute must be
+    }
+
+    readAttribute(sourceObj, weaponAtt_.itemBaseParameters);
+
+    return new ItemWeapon(weaponAtt_);
 }
