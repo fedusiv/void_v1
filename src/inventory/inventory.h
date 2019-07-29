@@ -2,6 +2,7 @@
 #define INVENTORY_H
 
 #include "items/itemweapon.h"
+#include "items/itemcloth.h"
 #include "return_codes.h"
 
 
@@ -41,6 +42,7 @@ public:
 
     EquipReturnCode equipMainWeapon(ItemWeapon * weapon);
     EquipReturnCode equipSecondWeapon(ItemWeapon * weapon);
+    EquipReturnCode equipCloth( ItemCloth * cloth);
 
 };
 

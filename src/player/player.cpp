@@ -19,8 +19,30 @@ FighterLiveStatus Player::defenceFromMonster(SkillAttackResult *attack)
     return  _PlayerState->reduceHealth( _PlayerSkillQueue->DefenceFromWeaponHit(attack));
 }
 
-EquipReturnCode Player::equipWeapon(ItemWeapon *weapon)
+EquipReturnCode Player::equipItem(Item * item)
 {
+    Q_UNUSED( item);
+    return  EquipReturnCode::Other;
+}
+
+EquipReturnCode Player::equipCloth(ItemCloth * cloth)
+{
+    // QUESTION: HOW TO SELECT WEAPON IN GUI
+    EquipReturnCode res = cloth->checkRequirments(_PlayerState->getStatsForRequire());
+
+    if ( res == EquipReturnCode::SUCCESS)
+    {
+        return _Inventory->equipMainWeapon(cloth);
+    }
+    else
+    {
+        return  res;
+    }
+}
+
+EquipReturnCode Player::equipWeapon(ItemWeapon * weapon)
+{
+    // QUESTION: HOW TO SELECT WEAPON IN GUI
     EquipReturnCode res = weapon->checkRequirments(_PlayerState->getStatsForRequire());
 
     if ( res == EquipReturnCode::SUCCESS)

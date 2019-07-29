@@ -1,13 +1,40 @@
 [
 	{
-		"id": "unique_item_id",
-		"name": "Test item - this name is for view only",
-		"desc": "some stick with poo on it - use wisely!",
-		"lears": ["Mage", "grey", "Rogue", "This_Is_Invalid_Lear"],
-		"reqstats": [10,9,8,7],
-		"level": 6,
-		"weight": 5.669,
-		"img": "poostick.png",
-		"nextlevel": "big_poo_stick_id"
+		"id": "sword-basic-1",
+		"name": "Iron sword I",
+		"desc": "Not good quality of sword, but it also can kill",
+		"lears": ["Warrior", "Grey", "Rogue", "Knight"],
+		"reqstats": [1,1,1,1],
+		"level": 0,
+		"weight": 2,
+		"img": "sword-basic-1.png",
+		"nextlevel": "sword-basic-2",
+		"weapon" :
+			     {
+              "hand" : 1,
+              "damage" : 8,
+              "type": "metal",
+              "scaleValue": [0.1,0,0],
+              "scaleStats": [1,0,0]
+			     }
+	},
+	{
+		"id": "dagger-basic-1",
+		"name": "Iron dagger I",
+		"desc": "Old dagger, but it also can kill",
+		"lears": ["Rogue", "Grey", "Assassin"],
+		"reqstats": [1,1,1,1],
+		"level": 0,
+		"weight": 1.5,
+		"img": "dagger-basic-1.png",
+		"nextlevel": "dagger-basic-2",
+		"weapon" :
+			     {
+              "hand" : 1,
+              "damage" : 6,
+              "type": "metal",
+              "scaleValue": [0,0.2,0],
+              "scaleStats": [0,1,0]
+			     }
 	}
 ]

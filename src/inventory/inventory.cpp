@@ -107,3 +107,9 @@ EquipReturnCode Inventory::equipSecondWeapon(ItemWeapon * weapon)
 
     return  EquipReturnCode::Other;
 }
+
+EquipReturnCode Inventory::equipCloth(ItemCloth *cloth)
+{
+
+}
+

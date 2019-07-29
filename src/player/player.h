@@ -28,6 +28,8 @@ public:
 
     // equip
     EquipReturnCode equipWeapon(ItemWeapon * weapon);
+    EquipReturnCode equipItem( Item * item);
+    EquipReturnCode equipCloth(ItemCloth * cloth);
 signals:
     void playerMakeWeaponHit(SkillAttackResult * attack);
 };
