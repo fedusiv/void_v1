@@ -16,7 +16,7 @@
 		  "damage" : 8,
 		  "type": "metal",
 		  "scaleValue": [0.1,0,0],
-		  "scaleStats": [1,0,0]
+		  "scale_stats": [1,0,0]
 		 }
 	},
 	
@@ -37,7 +37,7 @@
 		  "damage" : 6,
 		  "type": "metal",
 		  "scaleValue": [0,0.2,0],
-		  "scaleStats": [0,1,0]
+		  "scale_stats": [0,1,0]
 		 }
 				 
 		"other_values": 

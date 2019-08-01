@@ -26,7 +26,7 @@ void readAttribute(QJsonObject sourceObj, ItemAttribute &outAttribute)
     outAttribute.level = sourceObj["level"].toInt();
     outAttribute.weight = sourceObj["weight"].toDouble();
     outAttribute.image = sourceObj["img"].toString();
-    outAttribute.nextLevelItem = sourceObj["nextlevel"].toString();
+    outAttribute.nextLevelItem = sourceObj["next_level"].toString();
 
     // parsing arrays:
 

@@ -72,12 +72,18 @@ Item* ItemsDataBase::getItemByType(QJsonObject itemObj, ItemType type)
 Item* ItemsDataBase::getWeaponFromJson(QJsonObject sourceObj)
 {
     ItemWeaponAttribute weaponAtt_;
-    weaponAtt_.hands = WeaponHands::Both; // = strToHands(sourceObj["hands"].toString());
-    weaponAtt_.damage = sourceObj["damage"].isDouble();
-    weaponAtt_.type = DamageTypes::Blood; // = strToDmgType(sourceObj["damage_type"].toString());
-    for (int stat = 0; stat < 3; stat++)
+
+    auto weaponObj_ = sourceObj["weapon"].toObject();
+    if(!weaponObj_.isEmpty())
     {
-        //TODO: check wich type scaleAttribute must be
+        weaponAtt_.handSize = weaponObj_["hands"].toInt();
+        weaponAtt_.damage = weaponObj_["damage"].isDouble();
+        weaponAtt_.type = DamageTypes::Blood; // = strToDmgType(sourceObj["damage_type"].toString());
+        QJsonArray scaleAtts_ = weaponObj_["scale_stats"].toArray();
+        for (int stat = 0; stat < MainStats::size(); stat++)
+        {
+            weaponAtt_.scaleAttribute[stat] = scaleAtts_[stat].toInt();
+        }
     }
 
     readAttribute(sourceObj, weaponAtt_.itemBaseParameters);
