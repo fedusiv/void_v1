@@ -32,7 +32,7 @@ EquipReturnCode Player::equipCloth(ItemCloth * cloth)
 
     if ( res == EquipReturnCode::SUCCESS)
     {
-        return _Inventory->equipMainWeapon(cloth);
+        return _Inventory->equipCloth(cloth); //QUSTION: replaced it from equipMainWeapon(), how so?
     }
     else
     {

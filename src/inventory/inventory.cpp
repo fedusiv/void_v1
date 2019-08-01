@@ -110,6 +110,6 @@ EquipReturnCode Inventory::equipSecondWeapon(ItemWeapon * weapon)
 
 EquipReturnCode Inventory::equipCloth(ItemCloth *cloth)
 {
-
+    return EquipReturnCode::Other; //TODO: implement it correctly, it's just buildable fix
 }
 
