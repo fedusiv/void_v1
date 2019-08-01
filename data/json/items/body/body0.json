@@ -1,0 +1,36 @@
+[
+	{
+		"id": "body-cloth-1",
+		"name": "Cloth body",
+		"desc": "Poor body armor",
+		"lears": ["Warrior", "Grey", "Rogue", "Knight", "Assassin", "Mage"],
+		"reqstats": [1,1,1,1],
+		"level": 0,
+		"weight": 2,
+		"img": "body-cloth-1.png",
+		"nextlevel": "body-cloth-2",
+		"cloth" :
+			     {
+              "armor" : 1,
+              "typeArmor": "metal",
+              "typeCloth": "body"
+			     }
+	},
+	{
+		"id": "body-leather-1",
+		"name": "Leather body",
+		"desc": "bad leather body",
+		"lears": ["Warrior", "Grey", "Rogue", "Knight", "Assassin"],
+		"reqstats": [1,1,1,1],
+		"level": 0,
+		"weight": 2,
+		"img": "body-basic-1.png",
+		"nextlevel": "body-basic-2",
+		"cloth" :
+			     {
+              "armor" : 2,
+              "typeArmor": "metal",
+              "typeCloth": "body"
+			     }
+	}
+]

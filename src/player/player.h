@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "playerstate.h"
+#include "inventory/inventory.h"
 #include "skills/skilllist.h"
 #include "skills/skillsqueue.h"
 #include "skills/skillattack.h"
@@ -16,7 +17,7 @@ class Player : public QObject
       Q_OBJECT
 private:
     PlayerState * _PlayerState;     // pointer to object of Player's State
-    // PlayerInventory
+    Inventory   * _Inventory;
     SkillList * _PlayerSkillsList;  // pointer to List with all list, that player has
     SkillsQueue *_PlayerSkillQueue; // pointer to queue of Skills
 
@@ -24,6 +25,11 @@ public:
     Player();
     void MakeWeaponHit(WeaponHands hand); // decision of Player from GUI to make just hit by weapon
     FighterLiveStatus defenceFromMonster(SkillAttackResult * attack);   // defence from Mosnter
+
+    // equip
+    EquipReturnCode equipWeapon(ItemWeapon * weapon);
+    EquipReturnCode equipItem( Item * item);
+    EquipReturnCode equipCloth(ItemCloth * cloth);
 signals:
     void playerMakeWeaponHit(SkillAttackResult * attack);
 };

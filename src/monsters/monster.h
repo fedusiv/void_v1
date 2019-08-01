@@ -10,6 +10,7 @@
 
 struct MonsterAttribute
 {
+    QString id;
     QString name;                   // name of monster
     QString desc;                   // Lore description
     QString picture;                // image of monster

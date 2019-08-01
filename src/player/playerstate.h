@@ -56,6 +56,7 @@ public:
     void setWeaponDamage(ItemWeaponDamage itemDamage);      // sets playerweapondamage, must be called from inventory.
     PlayerWeaponDamage getPlayerWeaponDamage();
 
+    StatsRequire getStatsForRequire();
 };
 
 #endif // PLAYERSTATE_H

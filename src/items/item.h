@@ -70,7 +70,7 @@ struct ItemAttribute
  */
 struct ItemWeaponAttribute
 {
-    WeaponHands hands;
+    int handSize;
     float damage;
     DamageTypes type;
     QList<float> scaleValue;

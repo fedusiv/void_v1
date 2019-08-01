@@ -1,0 +1,64 @@
+[
+	{
+		"id": "skeleton-lame-1",
+		"name": "Lame skeleton",
+		"desc": "Weak skeleton",
+		"img": "skeleton-lame-1.png",
+		"level": 0,
+		"health": 20,
+		"exp": 10,
+		"damage" : {
+		  "hand" : "Main",
+		  "main" : {
+		    "damage" : 5,
+		    "type": "metal"
+		  }
+		},
+		"armor" :
+			     {
+              "armor" : 1,
+              "typeArmor": "metal"
+			     },
+	"loot":
+	[
+	  {
+	    "chance" : 0.6,
+	    "id" : "sword-basic-1"
+	  },{
+	    "chance" : 0.6,
+	    "id" : "dagger-basic-1"
+	  }
+	  ]
+  },
+  	{
+		"id": "skeleton-weak-1",
+		"name": "Weak skeleton",
+		"desc": "Weak skeleton",
+		"img": "skeleton-weak-1.png",
+		"level": 0,
+		"health": 12,
+		"exp": 10,
+		"damage" : {
+		  "hand" : "Second",
+		  "second" : {
+		    "damage" : 8,
+		    "type": "metal"
+		  }
+		},
+		"armor" :
+			     {
+              "armor" : 2,
+              "typeArmor": "metal"
+			     },
+	"loot":
+	[
+	  {
+	    "chance" : 0.6,
+	    "id" : "sword-basic-1"
+	  },{
+	    "chance" : 0.6,
+	    "id" : "dagger-basic-1"
+	  }
+	  ]
+  }
+]

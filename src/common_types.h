@@ -85,6 +85,7 @@ enum class WeaponHands
     Main,
     Second,
     Both,
+    TwoHanded,
     None
 };
 

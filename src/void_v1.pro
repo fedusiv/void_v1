@@ -19,6 +19,7 @@ SOURCES += \
     fight/fight.cpp \
     gamemanager.cpp \
     gui/gamegui.cpp \
+    inventory/inventory.cpp \
     main.cpp \
     monsters/monster.cpp \
     player/player.cpp \
@@ -57,6 +58,7 @@ HEADERS += \
     fight/fight.h \
     gamemanager.h \
     gui/gamegui.h \
+    inventory/inventory.h \
     items/itemtype.h \
     lear/class_list.h \
     monsters/monster.h \
