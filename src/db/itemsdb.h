@@ -22,7 +22,7 @@ private:
     Item* getWeaponFromJson(QJsonObject sourceObj);
 
 private:
-    ItemsHash _items [getItemTypesCount()]; //array of hashs, each one for certain item type
+    ItemsHash _items [INT(ItemType::ItemTypesCount)]; //array of hashs, each one for certain item type
 };
 
 #endif //ITEMSDB_H

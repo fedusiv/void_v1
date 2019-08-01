@@ -26,7 +26,7 @@ struct MainStats
     int stats[MainStatsCount];
 
     inline int& operator[](int statId) { return stats[statId]; }
-    constexpr size_t size() { return MainStatsCount; }
+    static constexpr size_t size() { return MainStatsCount; }
 };
 
 /*
@@ -44,8 +44,8 @@ struct StatsRequire
 {
     int stats[RequireStatsCount];
 
-    inline int& operator[](int statId) { return stats[statId]; }
-    constexpr size_t size() { return RequireStatsCount; }
+    inline int& operator[](size_t statId) { return stats[statId]; }
+    static constexpr size_t size() { return RequireStatsCount; }
 };
 
 /*
@@ -53,15 +53,21 @@ struct StatsRequire
  */
  struct MainStatsScale
 {
-    float Strength;
-    float Agility;
-    float Intelligence;
+    float scaleStats[MainStatsCount];
+
+    inline float& operator[](int statId) { return scaleStats[statId]; }
+    static constexpr size_t size() { return RequireStatsCount; }
+
     float calculate(MainStats stats)
-    { float res = 0.0;
-      res+=Strength * stats[MainStatNames::Strength];
-      res+=Agility * stats[MainStatNames::Agility];
-      res+=Intelligence * stats[MainStatNames::Intelligence];
-      return  res;}
+    {
+      float res = 0.0;
+      for(int stat = 0; stat < MainStatsCount; stat++)
+      {
+          res += stats[stat] * scaleStats[stat];
+      }
+
+      return  res;
+    }
 };
 
 /*
