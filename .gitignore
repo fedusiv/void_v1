@@ -70,3 +70,5 @@ Thumbs.db
 
 
 *.stash
+
+build-void_v1-Desktop_Qt_5_12_3_MSVC2017_32bit-Debug/debug/moc_predefs\.h
